@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class MainTest {
     public static void main(String[] args) {
-
+        Menu.showMenu();
 
 //        Address customer1Address = new Address(
 //                "Rio Grande Do Sul",
