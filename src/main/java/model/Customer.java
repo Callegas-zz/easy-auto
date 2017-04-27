@@ -16,6 +16,10 @@ public class Customer {
     private String telephone = "Not Register";
     private Address address;
 
+    public Customer(){
+
+    };
+
     public Customer(String name){
         this.name = name;
     }
@@ -27,6 +31,20 @@ public class Customer {
         this.email = email;
         this.telephone = telephone;
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", age=" + age +
+                ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", address=" + address +
+                '}';
     }
 
     @Id
