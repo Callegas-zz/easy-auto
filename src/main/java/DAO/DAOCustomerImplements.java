@@ -21,7 +21,7 @@ public class DAOCustomerImplements implements DAOCustomer {
         session.delete(customer);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Removed successfully!");
+        System.out.println("Removed successfully! \n\n\n");
     }
 
     public Customer find(Integer id){

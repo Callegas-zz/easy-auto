@@ -4,12 +4,14 @@ import DAO.DAOCustomerImplements;
 import model.Address;
 import model.Customer;
 
+import java.io.IOException;
 import java.util.Date;
 
 
 public class MainTest {
-    public static void main(String[] args) {
-        Menu.showMenu();
+    public static void main(String[] args) throws IOException {
+        Menu menu = new Menu();
+        menu.showMenu();
 
 //        Address customer1Address = new Address(
 //                "Rio Grande Do Sul",

@@ -11,10 +11,10 @@ public class Customer {
     private String name = "Not Register";
     private String cpf = "Not Register";
     private int age = 0;
-    private Date birthDate;
+    private Date birthDate = new Date();
     private String email = "Not Register";
     private String telephone = "Not Register";
-    private Address address;
+    private Address address = new Address();
 
     public Customer(){
 
