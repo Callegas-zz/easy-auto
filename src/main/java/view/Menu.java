@@ -22,14 +22,17 @@ public class Menu {
             System.out.println("3 - Find Customer");
             System.out.println("4 - Exit");
             System.out.print("\n\nchoose:");selection = input.nextInt();
-            System.out.println("\n\n");
             switch (selection) {
                 case 0: {
-                    System.out.println("Thanks for coming!");
+                    System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
                 }
                 case 1: {
 
                     customerController.registerNewCustomer();
+                    break;
+                }
+                case 2: {
+                    customerController.removeCustomer();
                     break;
                 }
                 case 3: {

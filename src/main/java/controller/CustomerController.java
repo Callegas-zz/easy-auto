@@ -13,11 +13,6 @@ public class CustomerController {
     Customer customer = new Customer();
     Address address = new Address();
 
-    public void findCustomer() {
-        System.out.print("Enter the id: ");
-        System.out.println(daoCustomerImplements.find(input.nextInt()));
-
-    }
 
     public void registerNewCustomer() {
         System.out.println("R E G I S T E R  N E W  C U S T O M E R");
@@ -103,5 +98,15 @@ public class CustomerController {
         return address.getNumber();
     }
 
+
+    public void findCustomer() {
+        System.out.print("Enter the id: ");
+        System.out.println(daoCustomerImplements.find(input.nextInt()));
+
+    }
+
+    public void removeCustomer() {
+
+    }
 
 }
