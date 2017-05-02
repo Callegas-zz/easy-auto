@@ -8,12 +8,13 @@ public class Menu {
 
 
     public void showMenu() {
-        int selection = 0;
+        int selection = 999;
         Scanner input = new Scanner(System.in);
+        CustomerController customerController = new CustomerController();
         System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
         System.out.println("                                       by callegas\n\n");
 
-        while (selection != 4) {
+        while (selection != 0) {
 
             System.out.println("Choose from these choices: ");
             System.out.println("1 - Register Customer");
@@ -24,15 +25,19 @@ public class Menu {
             System.out.println("\n\n");
             switch (selection) {
                 case 0: {
-
+                    System.out.println("Thanks for coming!");
                 }
                 case 1: {
-                    CustomerController customerController = new CustomerController();
+
                     customerController.registerNewCustomer();
                     break;
                 }
-                case 4: {
-                    System.out.println("Thanks for coming!");
+                case 3: {
+                    customerController.findCustomer();
+                    break;
+                }
+                case 999: {
+
                 }
                 default: {
                     System.out.println("Invalid option!");

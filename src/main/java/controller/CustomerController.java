@@ -9,9 +9,15 @@ import java.util.Scanner;
 public class CustomerController {
 
     Scanner input = new Scanner(System.in);
+    DAOCustomerImplements daoCustomerImplements = new DAOCustomerImplements();
     Customer customer = new Customer();
     Address address = new Address();
 
+    public void findCustomer() {
+        System.out.print("Enter the id: ");
+        System.out.println(daoCustomerImplements.find(input.nextInt()));
+
+    }
 
     public void registerNewCustomer() {
         System.out.println("R E G I S T E R  N E W  C U S T O M E R");
@@ -29,7 +35,7 @@ public class CustomerController {
         registerCustomerTelephone(input.next());
 
 
-        System.out.print("Enter your zip code: ");
+        System.out.print("Enter the zip code: ");
         registerCustomerAddressZip(input.next());
 
         System.out.print("Enter the State: ");
@@ -47,11 +53,8 @@ public class CustomerController {
 
         customer.setAddress(address);
 
-
-        DAOCustomerImplements daoCustomerImplements = new DAOCustomerImplements();
         daoCustomerImplements.save(customer);
 
-        System.out.println("\n\nR E G I S T R A T I O N  W A S  S U C C E S S F U L!");
     }
 
 
@@ -95,9 +98,10 @@ public class CustomerController {
         return address.getStreet();
     }
 
-    public int registerCustomerAddresNumber(int number){
+    public int registerCustomerAddresNumber(Integer number){
         address.setNumber(number);
         return address.getNumber();
     }
+
 
 }
