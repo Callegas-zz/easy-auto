@@ -12,7 +12,6 @@ public class DAOCustomerImplements implements DAOCustomer {
         session.save(customer);
         session.getTransaction().commit();
         session.close();
-        System.out.println("Registration was successful.");
     }
 
     public void remove(Customer customer) {
