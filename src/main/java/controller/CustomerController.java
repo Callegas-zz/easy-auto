@@ -51,7 +51,7 @@ public class CustomerController {
         DAOCustomerImplements daoCustomerImplements = new DAOCustomerImplements();
         daoCustomerImplements.save(customer);
 
-        System.out.println("Registration was successful!");
+        System.out.println("\n\nR E G I S T R A T I O N  W A S  S U C C E S S F U L!");
     }
 
 
@@ -91,7 +91,7 @@ public class CustomerController {
     }
 
     public String registerCustomerAddressStreet(String street){
-        address.setState(street);
+        address.setStreet(street);
         return address.getStreet();
     }
 
