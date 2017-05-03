@@ -4,6 +4,6 @@ import model.Customer;
 
 public interface DAOCustomer {
     public void save(Customer customer);
-    public void remove(Integer customer);
-    public Customer find(Integer id);
+    public void remove(String cpf);
+    public Customer find(String cpf);
 }

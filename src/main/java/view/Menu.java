@@ -7,50 +7,74 @@ import java.util.Scanner;
 public class Menu {
 
 
+    Scanner input = new Scanner(System.in);
+    CustomerController customerController = new CustomerController();
+
+
     public void showMenu() {
+        clearScreen();
         int selection = 999;
-        Scanner input = new Scanner(System.in);
-        CustomerController customerController = new CustomerController();
         System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
         System.out.println("                                       by callegas\n\n");
+        System.out.println("Choose from these choices: \n");
+        System.out.println("1 - Customer");
+        System.out.println("0 - Exit");
+        System.out.print("\n\nenter the option:");
+        selection = input.nextInt();
+        switch (selection){
+            case 0: {
+                clearScreen();
+                System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
+                break;
+            }
+            case 1: {
+                menuCustomer();
+                break;
+            }
+            default:
+                System.out.println("Invalid option!");
+        }
+    }
 
-        while (selection != 0) {
-
-            System.out.println("Choose from these choices: ");
+    public void menuCustomer(){
+        clearScreen();
+        int selection1 = 999;
+        while (selection1 != 0) {
+            System.out.println("C U S T O M E R  S E S S I O N\n");
             System.out.println("1 - Register Customer");
             System.out.println("2 - Remove Customer");
             System.out.println("3 - Find Customer");
-            System.out.println("4 - Exit");
-            System.out.print("\n\nchoose:");selection = input.nextInt();
-            switch (selection) {
+            System.out.println("0 - Return to main menu");
+            System.out.print("\n\nenter the option:");
+            selection1 = input.nextInt();
+            switch (selection1) {
                 case 0: {
-                    System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
+                    showMenu();
+                    break;
                 }
                 case 1: {
-
+                    clearScreen();
                     customerController.registerNewCustomer();
                     break;
                 }
                 case 2: {
-
+                    clearScreen();
                     customerController.removeCustomer();
                     break;
                 }
                 case 3: {
-
+                    clearScreen();
                     customerController.findCustomer();
                     break;
                 }
-                case 999: {
-
-                }
-                default: {
+                default:
                     System.out.println("Invalid option!");
-                }
             }
         }
     }
 
-
+    public static void clearScreen(){
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
 
 }

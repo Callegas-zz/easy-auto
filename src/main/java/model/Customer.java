@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 public class Customer {
 
-    private Integer id;
     private String name = "Not Register";
     private String cpf = "Not Register";
     private Date birthDate = new Date();
@@ -32,22 +31,12 @@ public class Customer {
     @Override
     public String toString() {
         return "Name: " + name +
-                "\nId: " + id +
                 "\nCpf: " + cpf +
                 "\nEmail: " + email +
                 "\nTelephone: " + telephone;
 
     }
 
-    @Id
-    @GeneratedValue
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return this.name;
@@ -57,6 +46,7 @@ public class Customer {
         this.name = name;
     }
 
+    @Id
     public String getCpf() {
         return this.cpf;
     }

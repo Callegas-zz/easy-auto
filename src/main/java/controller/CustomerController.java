@@ -100,14 +100,16 @@ public class CustomerController {
 
 
     public void findCustomer() {
-        System.out.print("Enter the id: ");
-        daoCustomerImplements.find(input.nextInt());
+        System.out.println("F I N D  C U S T O M E R:");
+        System.out.print("Enter the cpf for find customer: ");
+        daoCustomerImplements.find(input.next());
 
     }
 
     public void removeCustomer() {
-        System.out.print("Enter the id: ");
-        daoCustomerImplements.remove(input.nextInt());
+        System.out.println("D E L E T E  C U S T O M E R");
+        System.out.print("Enter the cpf for DELETE customer: ");
+        daoCustomerImplements.remove(input.next());
     }
 
 }
