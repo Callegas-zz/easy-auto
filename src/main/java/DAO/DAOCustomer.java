@@ -2,8 +2,10 @@ package DAO;
 
 import model.Customer;
 import org.hibernate.Session;
+import view.ClearScreen;
 
 public class DAOCustomer implements DAOCustomerInterface {
+    ClearScreen clearScreen = new ClearScreen();
 
     public void save(Customer customer){
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -11,7 +13,7 @@ public class DAOCustomer implements DAOCustomerInterface {
         session.save(customer);
         session.getTransaction().commit();
         session.close();
-        clearScreen();
+        clearScreen.clear();
         System.out.println("\n\nR E G I S T R A T I O N  W A S  S U C C E S S F U L!");
     }
 
@@ -21,7 +23,7 @@ public class DAOCustomer implements DAOCustomerInterface {
         session.delete(find(cpf));
         session.getTransaction().commit();
         session.close();
-        clearScreen();
+        clearScreen.clear();
         System.out.println("\n\nR E M O V E D  S U C C E S S F U L L Y! \n\n\n");
     }
 
@@ -30,7 +32,7 @@ public class DAOCustomer implements DAOCustomerInterface {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             Customer customerFind = (Customer) session.load(Customer.class, cpf);
-            clearScreen();
+            clearScreen.clear();
             System.out.println("\n\nC U R R E N T  C U S T O M E R:\n" + customerFind + "\n\n");
             session.getTransaction().commit();
             session.close();

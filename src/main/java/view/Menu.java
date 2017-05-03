@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Menu {
 
-
+    ClearScreen clearScreen = new ClearScreen();
     Scanner input = new Scanner(System.in);
     CustomerController customerController = new CustomerController();
 
 
     public void showMenu() {
-        clearScreen();
+        clearScreen.clear();
         int selection = 999;
         System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
         System.out.println("                                       by callegas\n\n");
@@ -23,7 +23,7 @@ public class Menu {
         selection = input.nextInt();
         switch (selection){
             case 0: {
-                clearScreen();
+                clearScreen.clear();
                 System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
                 break;
             }
@@ -37,7 +37,7 @@ public class Menu {
     }
 
     public void menuCustomer(){
-        clearScreen();
+        clearScreen.clear();
         int selection1 = 999;
         while (selection1 != 0) {
             System.out.println("C U S T O M E R  S E S S I O N\n");
@@ -53,17 +53,17 @@ public class Menu {
                     break;
                 }
                 case 1: {
-                    clearScreen();
+                    clearScreen.clear();
                     customerController.registerNewCustomer();
                     break;
                 }
                 case 2: {
-                    clearScreen();
+                    clearScreen.clear();
                     customerController.removeCustomer();
                     break;
                 }
                 case 3: {
-                    clearScreen();
+                    clearScreen.clear();
                     customerController.findCustomer();
                     break;
                 }
@@ -73,8 +73,5 @@ public class Menu {
         }
     }
 
-    public static void clearScreen(){
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    }
 
 }
