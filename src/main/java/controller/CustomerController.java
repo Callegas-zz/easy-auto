@@ -1,6 +1,6 @@
 package controller;
 
-import DAO.DAOCustomerImplements;
+import DAO.DAOCustomer;
 import model.Address;
 import model.Customer;
 
@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class CustomerController {
 
     Scanner input = new Scanner(System.in);
-    DAOCustomerImplements daoCustomerImplements = new DAOCustomerImplements();
+    DAOCustomer daoCustomerImplements = new DAOCustomer();
     Customer customer = new Customer();
     Address address = new Address();
 
