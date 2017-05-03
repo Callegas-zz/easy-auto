@@ -101,12 +101,13 @@ public class CustomerController {
 
     public void findCustomer() {
         System.out.print("Enter the id: ");
-        System.out.println(daoCustomerImplements.find(input.nextInt()));
+        daoCustomerImplements.find(input.nextInt());
 
     }
 
     public void removeCustomer() {
-
+        System.out.print("Enter the id: ");
+        daoCustomerImplements.remove(input.nextInt());
     }
 
 }

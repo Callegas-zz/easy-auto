@@ -10,19 +10,11 @@ public class Customer {
     private Integer id;
     private String name = "Not Register";
     private String cpf = "Not Register";
-    private int age = 0;
     private Date birthDate = new Date();
     private String email = "Not Register";
     private String telephone = "Not Register";
     private Address address = new Address();
 
-    public Customer(){
-
-    };
-
-    public Customer(String name){
-        this.name = name;
-    }
 
     public Customer(String name, String cpf, Date birthDate, String email, String telephone, Address address) {
         this.name = name;
@@ -33,18 +25,18 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(){
+
+    }
+
     @Override
     public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", age=" + age +
-                ", birthDate=" + birthDate +
-                ", email='" + email + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", address=" + address +
-                '}';
+        return "Name: " + name +
+                "\nId: " + id +
+                "\nCpf: " + cpf +
+                "\nEmail: " + email +
+                "\nTelephone: " + telephone;
+
     }
 
     @Id
@@ -71,15 +63,6 @@ public class Customer {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    @Transient
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     @Temporal(TemporalType.DATE)

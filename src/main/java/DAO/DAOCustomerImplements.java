@@ -15,11 +15,10 @@ public class DAOCustomerImplements implements DAOCustomer {
         System.out.println("\n\nR E G I S T R A T I O N  W A S  S U C C E S S F U L!");
     }
 
-
-    public void remove(Customer customer) {
+    public void remove(Integer id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.delete(customer);
+        session.delete(find(id));
         session.getTransaction().commit();
         session.close();
         System.out.println("\n\nR E M O V E D  S U C C E S S F U L L Y! \n\n\n");
@@ -27,14 +26,13 @@ public class DAOCustomerImplements implements DAOCustomer {
 
 
     public Customer find(Integer id){
-        try{
             Session session = HibernateUtil.getSessionFactory().openSession();
-            return (Customer) session.load(Customer.class, id);
+            session.beginTransaction();
+            Customer customerFind = (Customer) session.load(Customer.class, id);
+            System.out.println(customerFind + "\n\n3");
+            session.getTransaction().commit();
+            session.close();
+            return customerFind;
         }
-        catch (Exception e){
-            System.out.println("\n\nN O T  F O U N D!");
-        }
-        return new Customer();
-    }
 
 }

@@ -32,10 +32,12 @@ public class Menu {
                     break;
                 }
                 case 2: {
+
                     customerController.removeCustomer();
                     break;
                 }
                 case 3: {
+
                     customerController.findCustomer();
                     break;
                 }
