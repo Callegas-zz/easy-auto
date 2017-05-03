@@ -1,6 +1,5 @@
 package model;
 import javax.persistence.*;
-import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -9,16 +8,16 @@ public class Customer {
 
     private String name = "Not Register";
     private String cpf = "Not Register";
-    private Date birthDate = new Date();
+    private Date registrationDate = new Date();
     private String email = "Not Register";
     private String telephone = "Not Register";
     private Address address = new Address();
 
 
-    public Customer(String name, String cpf, Date birthDate, String email, String telephone, Address address) {
+    public Customer(String name, String cpf, Date registrationDate, String email, String telephone, Address address) {
         this.name = name;
         this.cpf = cpf;
-        this.birthDate = birthDate;
+        this.registrationDate = registrationDate;
         this.email = email;
         this.telephone = telephone;
         this.address = address;
@@ -56,13 +55,13 @@ public class Customer {
     }
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "birth_date")
-    public Date getBirthDate() {
-        return this.birthDate;
+    @Column(name = "registration_date")
+    public Date getRegistrationDate() {
+        return this.registrationDate;
     }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public void setRegistrationDate(Date birthDate) {
+        this.registrationDate = birthDate;
     }
 
     public String getEmail() {

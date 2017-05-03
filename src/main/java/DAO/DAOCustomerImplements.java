@@ -33,8 +33,6 @@ public class DAOCustomerImplements implements DAOCustomer {
             Customer customerFind = (Customer) session.load(Customer.class, cpf);
             clearScreen();
             System.out.println("\n\nC U R R E N T  C U S T O M E R:\n" + customerFind + "\n\n");
-
-
             session.getTransaction().commit();
             session.close();
             return customerFind;
