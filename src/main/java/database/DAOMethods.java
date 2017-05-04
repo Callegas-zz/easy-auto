@@ -1,7 +1,7 @@
 package database;
 
 import org.hibernate.Session;
-import useful.ClearScreen;
+import screen.interaction.ClearScreen;
 
 public abstract class DAOMethods implements DAO {
     ClearScreen clearScreen = new ClearScreen();

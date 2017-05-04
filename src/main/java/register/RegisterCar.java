@@ -2,7 +2,6 @@ package register;
 
 import car.Car;
 import car.DAOCar;
-import customer.DAOCustomer;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -35,6 +34,12 @@ public class RegisterCar {
 
         System.out.print("Enter the KM car: ");
         registerCarKM(input.nextLong());
+
+        System.out.println("Enter the kind of seat: ");
+        registerCarKindSeat(input.next());
+
+        System.out.println("Enter the rent price for this car: ");
+        registerCarRentPrice(input.nextDouble());
 
         daoCar.save(car);
     }
@@ -69,6 +74,15 @@ public class RegisterCar {
         return car.getKM();
     }
 
+    public String registerCarKindSeat(String seat){
+        car.setSeat(seat);
+        return car.getSeat();
+    }
+
+    public Double registerCarRentPrice(Double price){
+        car.setRentPrice(price);
+        return car.getRentPrice();
+    }
 
 
     public void removeCar() {

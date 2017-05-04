@@ -1,7 +1,4 @@
-package view;
-
-import car.Car;
-import car.DAOCar;
+package screen.interaction;
 
 public class Main {
     public static void main(String[] args) {

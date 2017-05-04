@@ -1,8 +1,7 @@
-package view;
+package screen.interaction;
 
 import register.RegisterCar;
 import register.RegisterCustomer;
-import useful.ClearScreen;
 
 import java.util.Scanner;
 

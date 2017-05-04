@@ -37,8 +37,20 @@ public class registerCarTest {
     }
 
     @Test
-    public void IsReceivingCarKMAndSetting(){
+    public void isReceivingCarKMAndSetting(){
         registerCar.registerCarKM(50000L);
         Assert.assertEquals(java.util.Optional.ofNullable(registerCar.car.getKM()),50000L);
+    }
+
+    @Test
+    public void isReceivingCarKindSeatAndSetting(){
+        registerCar.registerCarKindSeat("Leather");
+        Assert.assertEquals(registerCar.car.getSeat(), "Leather");
+    }
+
+    @Test
+    public void isReceivingCarRentPriceAndSetting(){
+        registerCar.registerCarRentPrice(80.00);
+        Assert.assertEquals(registerCar.car.getRentPrice(),(Double)80.00);
     }
 }
