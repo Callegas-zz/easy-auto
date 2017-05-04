@@ -39,32 +39,32 @@ public class RegisterCar {
         daoCar.save(car);
     }
 
-    private String registerCarManufacturer(String manufacturer) {
+    public String registerCarManufacturer(String manufacturer) {
         car.setManufacturer(manufacturer);
         return car.getManufacturer();
     }
 
-    private String registerCarModel(String model) {
+    public String registerCarModel(String model) {
         car.setModel(model);
         return car.getModel();
     }
 
-    private String registerCarLicencePlate(String licencePlate) {
+    public String registerCarLicencePlate(String licencePlate) {
         car.setLicencePlate(licencePlate);
         return car.getLicencePlate();
     }
 
-    private Integer registerCarYear(Integer year){
+    public Integer registerCarYear(Integer year){
         car.setYear(year);
         return car.getYear();
     }
 
-    private Double registerCarEngine(Double engine){
+    public Double registerCarEngine(Double engine){
         car.setEngine(engine);
         return car.getEngine();
     }
 
-    private Long registerCarKM(Long km){
+    public Long registerCarKM(Long km){
         car.setKM(km);
         return car.getKM();
     }
