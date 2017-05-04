@@ -41,4 +41,10 @@ public class RegisterCar {
         car.setLicencePlate(licencePlate);
         return car.getLicencePlate();
     }
+
+    public void removeCar() {
+        System.out.println("D E L E T E  C A R");
+        System.out.print("Enter the licence plate for DELETE car: ");
+        daoCar.remove(input.next());
+    }
 }

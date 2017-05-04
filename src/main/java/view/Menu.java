@@ -29,6 +29,7 @@ public class Menu {
             case 0: {
                 clearScreen.clear();
                 System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
+                System.exit(0);
                 break;
             }
             case 1: {
@@ -44,38 +45,7 @@ public class Menu {
         }
     }
 
-    private void menuCar() {
-        clearScreen.clear();
-        int selection2 = 999;
-        while (selection2 != 0) {
-            System.out.println("C A R  S E S S I O N\n");
-            System.out.println("1 - Register a new car");
-            System.out.println("0 - Return to main menu");
-            System.out.print("\n\nenter the option:");
-            selection2 = input.nextInt();
-            switch (selection2) {
-                case 0: {
-                    showMenu();
-                    break;
-                }
-                case 1: {
-                    clearScreen.clear();
-                    registerCar.registerNewCar();
-                    break;
-                }
-                case 2: {
 
-                    break;
-                }
-                case 3: {
-
-                    break;
-                }
-                default:
-                    System.out.println("Invalid option!");
-            }
-        }
-    }
 
     public void menuCustomer(){
         clearScreen.clear();
@@ -106,6 +76,42 @@ public class Menu {
                 case 3: {
                     clearScreen.clear();
                     registerCustomer.findCustomer();
+                    break;
+                }
+                default:
+                    System.out.println("Invalid option!");
+            }
+        }
+    }
+
+
+    private void menuCar() {
+        clearScreen.clear();
+        int selection2 = 999;
+        while (selection2 != 0) {
+            System.out.println("C A R  S E S S I O N\n");
+            System.out.println("1 - Register a new car");
+            System.out.println("2 - Remove car");
+            System.out.println("0 - Return to main menu");
+            System.out.print("\n\nenter the option:");
+            selection2 = input.nextInt();
+            switch (selection2) {
+                case 0: {
+                    showMenu();
+                    break;
+                }
+                case 1: {
+                    clearScreen.clear();
+                    registerCar.registerNewCar();
+                    break;
+                }
+                case 2: {
+                    clearScreen.clear();
+                    registerCar.removeCar();
+                    break;
+                }
+                case 3: {
+
                     break;
                 }
                 default:
