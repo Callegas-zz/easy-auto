@@ -1,4 +1,4 @@
-package model;
+package useful;
 
 import javax.persistence.Embeddable;
 

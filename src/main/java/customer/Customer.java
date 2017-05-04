@@ -1,4 +1,6 @@
-package model;
+package customer;
+import useful.Address;
+
 import javax.persistence.*;
 import java.util.Date;
 

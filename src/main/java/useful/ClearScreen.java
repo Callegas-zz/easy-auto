@@ -1,4 +1,4 @@
-package view;
+package useful;
 
 public class ClearScreen {
     public static void clear(){

@@ -1,6 +1,7 @@
 package view;
 
-import controller.CustomerController;
+import customer.RegisterCustomer;
+import useful.ClearScreen;
 
 import java.util.Scanner;
 
@@ -8,7 +9,7 @@ public class Menu {
 
     ClearScreen clearScreen = new ClearScreen();
     Scanner input = new Scanner(System.in);
-    CustomerController customerController = new CustomerController();
+    RegisterCustomer registerCustomer = new RegisterCustomer();
 
 
     public void showMenu() {
@@ -17,7 +18,7 @@ public class Menu {
         System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
         System.out.println("                                       by callegas\n\n");
         System.out.println("Choose from these choices: \n");
-        System.out.println("1 - Customer");
+        System.out.println("1 - customer");
         System.out.println("0 - Exit");
         System.out.print("\n\nenter the option:");
         selection = input.nextInt();
@@ -41,9 +42,9 @@ public class Menu {
         int selection1 = 999;
         while (selection1 != 0) {
             System.out.println("C U S T O M E R  S E S S I O N\n");
-            System.out.println("1 - Register Customer");
-            System.out.println("2 - Remove Customer");
-            System.out.println("3 - Find Customer");
+            System.out.println("1 - Register customer");
+            System.out.println("2 - Remove customer");
+            System.out.println("3 - Find customer");
             System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection1 = input.nextInt();
@@ -54,17 +55,17 @@ public class Menu {
                 }
                 case 1: {
                     clearScreen.clear();
-                    customerController.registerNewCustomer();
+                    registerCustomer.registerNewCustomer();
                     break;
                 }
                 case 2: {
                     clearScreen.clear();
-                    customerController.removeCustomer();
+                    registerCustomer.removeCustomer();
                     break;
                 }
                 case 3: {
                     clearScreen.clear();
-                    customerController.findCustomer();
+                    registerCustomer.findCustomer();
                     break;
                 }
                 default:

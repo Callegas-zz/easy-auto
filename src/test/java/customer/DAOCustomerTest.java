@@ -1,6 +1,7 @@
-package DAO;
+package customer;
 
-import model.Customer;
+import customer.DAOCustomer;
+import customer.Customer;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.mockito.Mockito.*;

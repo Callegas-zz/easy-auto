@@ -1,4 +1,4 @@
-package model;
+package car;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

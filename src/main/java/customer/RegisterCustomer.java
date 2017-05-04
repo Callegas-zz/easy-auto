@@ -1,12 +1,10 @@
-package controller;
+package customer;
 
-import DAO.DAOCustomer;
-import model.Address;
-import model.Customer;
+import useful.Address;
 
 import java.util.Scanner;
 
-public class CustomerController {
+public class RegisterCustomer {
 
     Scanner input = new Scanner(System.in);
     DAOCustomer daoCustomerImplements = new DAOCustomer();
@@ -103,7 +101,6 @@ public class CustomerController {
         System.out.println("F I N D  C U S T O M E R:");
         System.out.print("Enter the cpf for find customer: ");
         daoCustomerImplements.find(input.next());
-
     }
 
     public void removeCustomer() {
