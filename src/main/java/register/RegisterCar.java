@@ -47,4 +47,10 @@ public class RegisterCar {
         System.out.print("Enter the licence plate for DELETE car: ");
         daoCar.remove(input.next());
     }
+
+    public void findCar() {
+        System.out.println("F I N D  C U S T O M E R:");
+        System.out.print("Enter the licence plate for find car: ");
+        daoCar.find(input.next());
+    }
 }

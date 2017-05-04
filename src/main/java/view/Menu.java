@@ -52,7 +52,7 @@ public class Menu {
         int selection1 = 999;
         while (selection1 != 0) {
             System.out.println("C U S T O M E R  S E S S I O N\n");
-            System.out.println("1 - Register customer");
+            System.out.println("1 - Register a new customer");
             System.out.println("2 - Remove customer");
             System.out.println("3 - Find customer");
             System.out.println("0 - Return to main menu");
@@ -92,6 +92,7 @@ public class Menu {
             System.out.println("C A R  S E S S I O N\n");
             System.out.println("1 - Register a new car");
             System.out.println("2 - Remove car");
+            System.out.println("3 - Find car");
             System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection2 = input.nextInt();
@@ -111,7 +112,8 @@ public class Menu {
                     break;
                 }
                 case 3: {
-
+                    clearScreen.clear();
+                    registerCar.findCar();
                     break;
                 }
                 default:
