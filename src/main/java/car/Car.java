@@ -1,4 +1,6 @@
 package car;
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,14 +10,15 @@ public class Car {
     private String manufacturer;
     private String model;
     private Integer year;
-    private Double motor;
+    private Long KM;
+    private Double engine;
     private byte gearBox;
     private byte doors;
     private byte places;
-    private boolean oil;
     private String category;
-    private boolean available;
     private Double rentPrice;
+    private boolean oil;
+    private boolean available;
     private boolean airbag;
     private boolean armored;
     private boolean abs;
@@ -56,12 +59,20 @@ public class Car {
         this.year = year;
     }
 
-    public Double getMotor() {
-        return motor;
+    public Long getKM() {
+        return KM;
     }
 
-    public void setMotor(Double motor) {
-        this.motor = motor;
+    public void setKM(Long KM) {
+        this.KM = KM;
+    }
+
+    public Double getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Double motor) {
+        this.engine = motor;
     }
 
     public byte getGearBox() {
@@ -88,6 +99,7 @@ public class Car {
         this.places = places;
     }
 
+    @Type(type="true_false")
     public boolean isOil() {
         return oil;
     }
@@ -104,6 +116,7 @@ public class Car {
         this.category = category;
     }
 
+    @Type(type="true_false")
     public boolean isAvailable() {
         return available;
     }
@@ -120,6 +133,7 @@ public class Car {
         this.rentPrice = rentPrice;
     }
 
+    @Type(type="true_false")
     public boolean isAirbag() {
         return airbag;
     }
@@ -128,6 +142,7 @@ public class Car {
         this.airbag = airbag;
     }
 
+    @Type(type="true_false")
     public boolean isArmored() {
         return armored;
     }
@@ -136,6 +151,7 @@ public class Car {
         this.armored = armored;
     }
 
+    @Type(type="true_false")
     public boolean isAbs() {
         return abs;
     }
@@ -144,6 +160,7 @@ public class Car {
         this.abs = abs;
     }
 
+    @Type(type="true_false")
     public boolean isSteering() {
         return steering;
     }
@@ -152,6 +169,7 @@ public class Car {
         this.steering = steering;
     }
 
+    @Type(type="true_false")
     public boolean isAir() {
         return air;
     }
