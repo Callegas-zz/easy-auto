@@ -1,5 +1,7 @@
-package customer;
+package register;
 
+import customer.Customer;
+import customer.DAOCustomer;
 import useful.Address;
 
 import java.util.Scanner;
@@ -7,13 +9,13 @@ import java.util.Scanner;
 public class RegisterCustomer {
 
     Scanner input = new Scanner(System.in);
-    DAOCustomer daoCustomerImplements = new DAOCustomer();
+    DAOCustomer daoCustomer = new DAOCustomer();
     Customer customer = new Customer();
     Address address = new Address();
 
 
     public void registerNewCustomer() {
-        System.out.println("R E G I S T E R  N E W  C U S T O M E R");
+        System.out.println("R E G I S T E R  N E W  C U S T O M E R: ");
 
         System.out.print("Enter the name: ");
         registerCustomerName(input.next());
@@ -46,7 +48,7 @@ public class RegisterCustomer {
 
         customer.setAddress(address);
 
-        daoCustomerImplements.save(customer);
+        daoCustomer.save(customer);
 
     }
 
@@ -100,13 +102,13 @@ public class RegisterCustomer {
     public void findCustomer() {
         System.out.println("F I N D  C U S T O M E R:");
         System.out.print("Enter the cpf for find customer: ");
-        daoCustomerImplements.find(input.next());
+        daoCustomer.find(input.next());
     }
 
     public void removeCustomer() {
         System.out.println("D E L E T E  C U S T O M E R");
         System.out.print("Enter the cpf for DELETE customer: ");
-        daoCustomerImplements.remove(input.next());
+        daoCustomer.remove(input.next());
     }
 
 }

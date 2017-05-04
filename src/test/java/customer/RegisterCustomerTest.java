@@ -1,5 +1,5 @@
 package customer;
-import customer.RegisterCustomer;
+import register.RegisterCustomer;
 import org.junit.Assert;
 import org.junit.Test;
 

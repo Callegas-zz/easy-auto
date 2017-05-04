@@ -15,20 +15,6 @@ public class Customer {
     private String telephone = "Not Register";
     private Address address = new Address();
 
-
-    public Customer(String name, String cpf, Date registrationDate, String email, String telephone, Address address) {
-        this.name = name;
-        this.cpf = cpf;
-        this.registrationDate = registrationDate;
-        this.email = email;
-        this.telephone = telephone;
-        this.address = address;
-    }
-
-    public Customer(){
-
-    }
-
     @Override
     public String toString() {
         return "Name: " + name +
