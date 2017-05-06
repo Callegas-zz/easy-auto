@@ -1,6 +1,7 @@
 package customer;
 import car.Car;
 import address.Address;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.*;
@@ -11,6 +12,7 @@ import java.util.*;
         @UniqueConstraint(columnNames = "customer_cpf"),
         @UniqueConstraint(columnNames = "customer_registration_date"),
         @UniqueConstraint(columnNames = "customer_email"),
+        @UniqueConstraint(columnNames = "customer_has_car_rent"),
         @UniqueConstraint(columnNames = "customer_telephone") })
 public class Customer {
 
@@ -20,6 +22,7 @@ public class Customer {
     private String email = "Not Register";
     private String telephone = "Not Register";
     private Address address = new Address();
+    private boolean hasCarRent = false;
 
     private List<Car> cars = new ArrayList<Car>();
 
@@ -92,6 +95,15 @@ public class Customer {
         this.address = address;
     }
 
+    @Column(name = "customer_has_car_rent", unique = true, nullable = false)
+    @Type(type="true_false")
+    public boolean isHasCarRent() {
+        return hasCarRent;
+    }
+
+    public void setHasCarRent(boolean hasCarRent) {
+        this.hasCarRent = hasCarRent;
+    }
 
     @Override
     public String toString() {

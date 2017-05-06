@@ -30,8 +30,9 @@ public class Rent {
         cars.add(currentCar);
         currentCustomer.setCars(cars);
 
-        if(currentCar.isAvailable()) {
+        if(currentCar.isAvailable() && !currentCustomer.isHasCarRent()) {
             currentCar.setAvailable(false);
+            currentCustomer.setHasCarRent(true);
             daoCar.update(currentCar);
             daoCustomer.update(currentCustomer);
 
@@ -39,7 +40,7 @@ public class Rent {
             System.out.println("C A R: \n" + currentCar + "\n");
         } else {
             clearScreen.clear();
-            System.out.println("S O R R Y, U N A V A I L A B L E  C A R 3!" + "\n");
+            System.out.println("S O R R Y, U N A V A I L A B L E  C A R  O R  C U S T O M E R!" + "\n");
         }
 
     }
