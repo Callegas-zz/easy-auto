@@ -5,7 +5,6 @@ import address.Address;
 import javax.persistence.*;
 import java.util.*;
 
-
 @Entity
 @Table(name = "customer", catalog = "easy_auto_db", uniqueConstraints = {
         @UniqueConstraint(columnNames = "customer_name"),
@@ -35,15 +34,6 @@ public class Customer {
 
     public void setCars(List<Car> cars) {
         this.cars = cars;
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + name +
-                "\nCpf: " + cpf +
-                "\nEmail: " + email +
-                "\nTelephone: " + telephone;
-
     }
 
     @Column(name = "customer_name", unique = true, nullable = false)
@@ -101,4 +91,17 @@ public class Customer {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+
+    @Override
+    public String toString() {
+        return "Name: " + name +
+                "\nCpf: " + cpf +
+                "\nEmail: " + email +
+                "\nTelephone: " + telephone;
+
+    }
+
+
+
 }

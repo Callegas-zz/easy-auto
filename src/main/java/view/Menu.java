@@ -54,6 +54,7 @@ public class Menu {
             System.out.println("1 - Register a new customer");
             System.out.println("2 - Remove customer");
             System.out.println("3 - Find customer");
+            System.out.println("4 - Rent");
             System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection1 = input.nextInt();
