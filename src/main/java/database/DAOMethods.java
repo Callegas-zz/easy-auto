@@ -28,5 +28,13 @@ public abstract class DAOMethods implements DAO {
         System.out.println("\n\nR E M O V E D  S U C C E S S F U L L Y! \n\n");
     }
 
+    public void update(Object object) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(object);
+        session.getTransaction().commit();
+        session.close();
+        clearScreen.clear();
+    }
 
 }

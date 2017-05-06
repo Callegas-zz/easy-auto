@@ -2,6 +2,7 @@ package view;
 
 import register.RegisterCar;
 import register.RegisterCustomer;
+import service.Rent;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Menu {
     Scanner input = new Scanner(System.in);
     RegisterCustomer registerCustomer = new RegisterCustomer();
     RegisterCar registerCar = new RegisterCar();
+    Rent rent = new Rent();
 
 
     public void showMenu() {
@@ -19,8 +21,9 @@ public class Menu {
         System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
         System.out.println("                                       by callegas\n\n");
         System.out.println("Choose one of the segments below: \n");
-        System.out.println("1 - customer");
-        System.out.println("2 - car");
+        System.out.println("1 - Customer");
+        System.out.println("2 - Car");
+        System.out.println("3 - Rent");
         System.out.println("0 - Exit");
         System.out.print("\n\nenter the option:");
         selection = input.nextInt();
@@ -39,6 +42,10 @@ public class Menu {
                 menuCar();
                 break;
             }
+            case 3: {
+                menuRent();
+                break;
+            }
             default:
                 System.out.println("Invalid option!");
         }
@@ -54,7 +61,6 @@ public class Menu {
             System.out.println("1 - Register a new customer");
             System.out.println("2 - Remove customer");
             System.out.println("3 - Find customer");
-            System.out.println("4 - Rent");
             System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection1 = input.nextInt();
@@ -114,6 +120,30 @@ public class Menu {
                 case 3: {
                     clearScreen.clear();
                     registerCar.findCar();
+                    break;
+                }
+                default:
+                    System.out.println("Invalid option!");
+            }
+        }
+    }
+
+    private void menuRent(){
+        clearScreen.clear();
+        int selection3 = 999;
+        while (selection3 != 0) {
+            System.out.println("R E N T  S E S S I O N\n");
+            System.out.println("1 - New Rent");
+            System.out.print("\n\nenter the option:");
+            selection3 = input.nextInt();
+            switch (selection3) {
+                case 0: {
+                    showMenu();
+                    break;
+                }
+                case 1: {
+                    clearScreen.clear();
+                    rent.newRent();
                     break;
                 }
                 default:

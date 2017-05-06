@@ -27,16 +27,12 @@ public class Car {
     private boolean air;
     private String seat;
 
-//    private Customer customer = new Customer();
-//
-//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "cars")
-//    public Customer getCustomer() {
-//        return customer;
-//    }
-//
-//    public void setCustomer(Customer customer) {
-//        this.customer = customer;
-//    }
+    @Override
+    public String toString() {
+        return "Manufacturer: " + this.manufacturer +
+                "\nModel: " + this.model +
+                "\nLicence plate: " + this.licencePlate;
+    }
 
     @Id
     @Column(name = "car_licence_plate", unique = true, nullable = false)
