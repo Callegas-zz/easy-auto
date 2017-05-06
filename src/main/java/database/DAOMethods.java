@@ -35,6 +35,7 @@ public abstract class DAOMethods implements DAO {
         session.getTransaction().commit();
         session.close();
         clearScreen.clear();
+        System.out.println("\n\nU P D A T E  S U C C E S S F U L L Y! \n\n");
     }
 
 }

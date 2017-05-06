@@ -134,6 +134,7 @@ public class Menu {
         while (selection3 != 0) {
             System.out.println("R E N T  S E S S I O N\n");
             System.out.println("1 - New Rent");
+            System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection3 = input.nextInt();
             switch (selection3) {

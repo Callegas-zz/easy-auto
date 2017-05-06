@@ -19,7 +19,7 @@ public class Car {
     private String category;
     private Double rentPrice;
     private boolean oil;
-    private boolean available;
+    private boolean available = true;
     private boolean airbag;
     private boolean armored;
     private boolean abs;

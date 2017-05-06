@@ -4,6 +4,7 @@ import car.Car;
 import car.DAOCar;
 import customer.Customer;
 import customer.DAOCustomer;
+import view.ClearScreen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,7 @@ public class Rent {
     DAOCustomer daoCustomer = new DAOCustomer();
     DAOCar daoCar = new DAOCar();
     Scanner input = new Scanner(System.in);
+    ClearScreen clearScreen = new ClearScreen();
 
     public void newRent(){
         System.out.println("Enter the customer cpf: ");
@@ -28,10 +30,17 @@ public class Rent {
         cars.add(currentCar);
         currentCustomer.setCars(cars);
 
-        daoCustomer.select(currentCustomer);
+        if(currentCar.isAvailable()) {
+            currentCar.setAvailable(false);
+            daoCar.update(currentCar);
+            daoCustomer.update(currentCustomer);
 
-        System.out.println("C U S T O M E R: \n" + currentCustomer + "\n");
-        System.out.println("C A R: \n" + currentCar + "\n");
+            System.out.println("C U S T O M E R: \n" + currentCustomer + "\n");
+            System.out.println("C A R: \n" + currentCar + "\n");
+        } else {
+            clearScreen.clear();
+            System.out.println("S O R R Y, U N A V A I L A B L E  C A R 3!" + "\n");
+        }
 
     }
 
