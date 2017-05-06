@@ -1,10 +1,11 @@
 package car;
+import customer.Customer;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "car", catalog = "easy_auto_db")
 public class Car {
     private String licencePlate;
     private String manufacturer;
@@ -26,7 +27,19 @@ public class Car {
     private boolean air;
     private String seat;
 
+//    private Customer customer = new Customer();
+//
+//    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "cars")
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
+
     @Id
+    @Column(name = "car_licence_plate", unique = true, nullable = false)
     public String getLicencePlate() {
         return licencePlate;
     }

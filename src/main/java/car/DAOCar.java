@@ -3,7 +3,7 @@ package car;
 import org.hibernate.Session;
 import database.DAOMethods;
 import database.HibernateUtil;
-import screen.interaction.ClearScreen;
+import view.ClearScreen;
 
 public class DAOCar extends DAOMethods{
     ClearScreen clearScreen = new ClearScreen();

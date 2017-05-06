@@ -1,4 +1,4 @@
-package screen.interaction;
+package view;
 
 import register.RegisterCar;
 import register.RegisterCustomer;

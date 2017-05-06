@@ -2,7 +2,7 @@ package register;
 
 import customer.Customer;
 import customer.DAOCustomer;
-import useful.Address;
+import address.Address;
 
 import java.util.Scanner;
 

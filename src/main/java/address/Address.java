@@ -1,4 +1,4 @@
-package useful;
+package address;
 
 import javax.persistence.Embeddable;
 

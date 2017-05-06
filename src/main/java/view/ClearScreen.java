@@ -1,4 +1,4 @@
-package screen.interaction;
+package view;
 
 public class ClearScreen {
     public static void clear(){

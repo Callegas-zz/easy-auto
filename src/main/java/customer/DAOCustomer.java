@@ -3,7 +3,7 @@ package customer;
 import database.DAOMethods;
 import database.HibernateUtil;
 import org.hibernate.Session;
-import screen.interaction.ClearScreen;
+import view.ClearScreen;
 
 public class DAOCustomer extends DAOMethods {
     ClearScreen clearScreen = new ClearScreen();
