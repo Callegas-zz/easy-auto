@@ -36,6 +36,8 @@ public class Rent {
             daoCar.update(currentCar);
             daoCustomer.update(currentCustomer);
 
+            System.out.println("R E N T  W A S  S U C C E F U L L Y!" + "\n");
+
             System.out.println("C U S T O M E R: \n" + currentCustomer + "\n");
             System.out.println("C A R: \n" + currentCar + "\n");
         } else {

@@ -29,8 +29,7 @@ public class Customer {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "customer_car", catalog = "easy_auto_db", joinColumns = {
             @JoinColumn(name = "customer_cpf", nullable = false, updatable = false) },
-            inverseJoinColumns = { @JoinColumn(name = "car_licence_plate",
-                    nullable = false, updatable = false) })
+            inverseJoinColumns = { @JoinColumn(name = "car_licence_plate", nullable = false, updatable = false) })
     public List<Car> getCars() {
         return this.cars;
     }

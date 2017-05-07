@@ -35,9 +35,6 @@ public class RegisterCar {
         System.out.print("Enter the KM car: ");
         registerCarKM(input.nextLong());
 
-        System.out.println("Enter the kind of seat: ");
-        registerCarKindSeat(input.next());
-
         System.out.println("Enter the rent price for this car: ");
         registerCarRentPrice(input.nextDouble());
 

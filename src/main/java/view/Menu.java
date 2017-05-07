@@ -23,7 +23,7 @@ public class Menu {
         System.out.println("Choose one of the segments below: \n");
         System.out.println("1 - Customer");
         System.out.println("2 - Car");
-        System.out.println("3 - Rent");
+        System.out.println("3 - Service");
         System.out.println("0 - Exit");
         System.out.print("\n\nenter the option:");
         selection = input.nextInt();
@@ -43,7 +43,7 @@ public class Menu {
                 break;
             }
             case 3: {
-                menuRent();
+                menuService();
                 break;
             }
             default:
@@ -128,12 +128,13 @@ public class Menu {
         }
     }
 
-    private void menuRent(){
+    private void menuService(){
         clearScreen.clear();
         int selection3 = 999;
         while (selection3 != 0) {
-            System.out.println("R E N T  S E S S I O N\n");
+            System.out.println("S E R V I C E  S E S S I O N\n");
             System.out.println("1 - New Rent");
+            System.out.println("2 - Finish Rent");
             System.out.println("0 - Return to main menu");
             System.out.print("\n\nenter the option:");
             selection3 = input.nextInt();
@@ -145,6 +146,9 @@ public class Menu {
                 case 1: {
                     clearScreen.clear();
                     rent.newRent();
+                    break;
+                }
+                case 2: {
                     break;
                 }
                 default:
