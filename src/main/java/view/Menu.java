@@ -2,6 +2,7 @@ package view;
 
 import register.RegisterCar;
 import register.RegisterCustomer;
+import service.FinishRent;
 import service.Rent;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Menu {
     RegisterCustomer registerCustomer = new RegisterCustomer();
     RegisterCar registerCar = new RegisterCar();
     Rent rent = new Rent();
-
+    FinishRent finishRent = new FinishRent();
 
     public void showMenu() {
         clearScreen.clear();
@@ -149,6 +150,8 @@ public class Menu {
                     break;
                 }
                 case 2: {
+                    clearScreen.clear();
+                    finishRent.finishRent();
                     break;
                 }
                 default:
