@@ -1,5 +1,6 @@
-package car;
+package database;
 
+import model.Car;
 import org.hibernate.Session;
 import database.DAOMethods;
 import database.HibernateUtil;

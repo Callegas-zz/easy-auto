@@ -1,8 +1,8 @@
 package view;
 
-import register.RegisterCar;
-import register.RegisterCustomer;
-import service.Rent;
+import controller.RegisterCar;
+import controller.RegisterCustomer;
+import controller.Rent;
 
 import java.util.Scanner;
 

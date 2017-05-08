@@ -1,4 +1,4 @@
-package register;
+package controller;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -8,7 +8,7 @@ Designated to manage a car rental company providing some of the main features an
 - Register, find and remove vehicles.
 - Request lease and generate contracts.
 - Devolution
-- To register contracted Car mechanics.
+- To controller contracted Car mechanics.
 - Send and remove vehicles for maintenance.
 - Status of vehicles in operation.
 

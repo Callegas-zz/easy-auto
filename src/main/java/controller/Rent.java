@@ -1,12 +1,9 @@
-package service;
+package controller;
 
-import car.Car;
-import car.DAOCar;
-import customer.Customer;
-import customer.DAOCustomer;
-import database.HibernateUtil;
-import org.hibernate.Hibernate;
-import org.hibernate.Session;
+import model.Car;
+import database.DAOCar;
+import model.Customer;
+import database.DAOCustomer;
 import view.ClearScreen;
 
 import java.util.ArrayList;

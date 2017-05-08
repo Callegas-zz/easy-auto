@@ -1,4 +1,4 @@
-package address;
+package model;
 
 import javax.persistence.Embeddable;
 

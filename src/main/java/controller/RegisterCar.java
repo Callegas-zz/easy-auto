@@ -1,7 +1,7 @@
-package register;
+package controller;
 
-import car.Car;
-import car.DAOCar;
+import model.Car;
+import database.DAOCar;
 import view.AsciiArt;
 
 import java.util.Locale;

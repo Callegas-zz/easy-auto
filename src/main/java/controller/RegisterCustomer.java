@@ -1,8 +1,8 @@
-package register;
+package controller;
 
-import customer.Customer;
-import customer.DAOCustomer;
-import address.Address;
+import model.Customer;
+import database.DAOCustomer;
+import model.Address;
 import view.AsciiArt;
 
 import java.util.Scanner;

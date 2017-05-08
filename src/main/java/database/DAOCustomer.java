@@ -1,7 +1,8 @@
-package customer;
+package database;
 
 import database.DAOMethods;
 import database.HibernateUtil;
+import model.Customer;
 import org.hibernate.Session;
 import view.ClearScreen;
 

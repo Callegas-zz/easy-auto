@@ -1,7 +1,7 @@
 package customer;
 
-import customer.DAOCustomer;
-import customer.Customer;
+import database.DAOCustomer;
+import model.Customer;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.mockito.Mockito.*;

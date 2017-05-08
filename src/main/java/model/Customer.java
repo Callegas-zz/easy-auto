@@ -1,6 +1,6 @@
-package customer;
-import car.Car;
-import address.Address;
+package model;
+import model.Car;
+import model.Address;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -14,81 +14,86 @@ import java.util.*;
         @UniqueConstraint(columnNames = "customer_telephone") })
 public class Customer {
 
+    @Column(name = "customer_name", unique = true, nullable = false)
     private String name = "Not Register";
-    private String cpf = "Not Register";
-    private String email = "Not Register";
-    private String telephone = "Not Register";
-    private Address address = new Address();
-    private boolean hasCarRent = false;
 
-    private List<Car> cars = new ArrayList<Car>();
+    @Id
+    @Column(name = "customer_cpf", unique = true, nullable = false)
+    private String cpf = "Not Register";
+
+    @Column(name = "customer_email", unique = true, nullable = false)
+    private String email = "Not Register";
+
+    @Column(name = "customer_telephone", unique = true, nullable = false)
+    private String telephone = "Not Register";
+
+    @Embedded
+    private Address address = new Address();
+
+    @Column(name = "customer_has_car_rent", nullable = false)
+    @Type(type="true_false")
+    private boolean hasCarRent = false;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "customer_car", catalog = "easy_auto_db", joinColumns = {
             @JoinColumn(name = "customer_cpf", nullable = false, updatable = false) },
             inverseJoinColumns = { @JoinColumn(name = "car_licence_plate", nullable = false, updatable = false) })
-    public List<Car> getCars() {
-        return this.cars;
-    }
+    private List<Car> cars = new ArrayList<Car>();
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
-    }
-
-    @Column(name = "customer_name", unique = true, nullable = false)
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    @Id
-    @Column(name = "customer_cpf", unique = true, nullable = false)
     public String getCpf() {
-        return this.cpf;
+        return cpf;
     }
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    @Column(name = "customer_email", unique = true, nullable = false)
     public String getEmail() {
-        return this.email;
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    @Column(name = "customer_telephone", unique = true, nullable = false)
     public String getTelephone() {
-        return this.telephone;
+        return telephone;
     }
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    @Embedded
     public Address getAddress() {
-        return this.address;
+        return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
     }
 
-    @Column(name = "customer_has_car_rent", nullable = false)
-    @Type(type="true_false")
     public boolean isHasCarRent() {
         return hasCarRent;
     }
 
     public void setHasCarRent(boolean hasCarRent) {
         this.hasCarRent = hasCarRent;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     @Override

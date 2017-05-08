@@ -1,5 +1,4 @@
-package car;
-import customer.Customer;
+package model;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -7,25 +6,23 @@ import javax.persistence.*;
 @Entity
 @Table(name = "car", catalog = "easy_auto_db")
 public class Car {
+    @Id
+    @Column(name = "car_licence_plate", unique = true, nullable = false)
     private String licencePlate;
+
     private String manufacturer;
     private String model;
     private Integer year;
     private Long KM;
     private Double engine;
-    private byte gearBox;
-    private byte doors;
     private byte places;
     private String category;
     private Double rentPrice;
-    private boolean oil;
     private boolean available = true;
-    private boolean airbag;
+    @Type(type="true_false")
     private boolean armored;
-    private boolean abs;
-    private boolean steering;
+    @Type(type="true_false")
     private boolean air;
-    private String seat;
 
     @Override
     public String toString() {
@@ -34,8 +31,6 @@ public class Car {
                 "\nLicence plate: " + this.licencePlate;
     }
 
-    @Id
-    @Column(name = "car_licence_plate", unique = true, nullable = false)
     public String getLicencePlate() {
         return licencePlate;
     }
@@ -80,24 +75,8 @@ public class Car {
         return engine;
     }
 
-    public void setEngine(Double motor) {
-        this.engine = motor;
-    }
-
-    public byte getGearBox() {
-        return gearBox;
-    }
-
-    public void setGearBox(byte gearBox) {
-        this.gearBox = gearBox;
-    }
-
-    public byte getDoors() {
-        return doors;
-    }
-
-    public void setDoors(byte doors) {
-        this.doors = doors;
+    public void setEngine(Double engine) {
+        this.engine = engine;
     }
 
     public byte getPlaces() {
@@ -108,30 +87,12 @@ public class Car {
         this.places = places;
     }
 
-    @Type(type="true_false")
-    public boolean isOil() {
-        return oil;
-    }
-
-    public void setOil(boolean oil) {
-        this.oil = oil;
-    }
-
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
-    }
-
-    @Type(type="true_false")
-    public boolean isAvailable() {
-        return available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
     }
 
     public Double getRentPrice() {
@@ -142,16 +103,14 @@ public class Car {
         this.rentPrice = rentPrice;
     }
 
-    @Type(type="true_false")
-    public boolean isAirbag() {
-        return airbag;
+    public boolean isAvailable() {
+        return available;
     }
 
-    public void setAirbag(boolean airbag) {
-        this.airbag = airbag;
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
-    @Type(type="true_false")
     public boolean isArmored() {
         return armored;
     }
@@ -160,38 +119,11 @@ public class Car {
         this.armored = armored;
     }
 
-    @Type(type="true_false")
-    public boolean isAbs() {
-        return abs;
-    }
-
-    public void setAbs(boolean abs) {
-        this.abs = abs;
-    }
-
-    @Type(type="true_false")
-    public boolean isSteering() {
-        return steering;
-    }
-
-    public void setSteering(boolean steering) {
-        this.steering = steering;
-    }
-
-    @Type(type="true_false")
     public boolean isAir() {
         return air;
     }
 
     public void setAir(boolean air) {
         this.air = air;
-    }
-
-    public String getSeat() {
-        return seat;
-    }
-
-    public void setSeat(String seat) {
-        this.seat = seat;
     }
 }

@@ -1,5 +1,4 @@
-package register;
-import register.RegisterCustomer;
+package controller;
 import org.junit.Assert;
 import org.junit.Test;
 
