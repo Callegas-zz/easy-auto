@@ -47,4 +47,17 @@ public class Rent {
 
     }
 
+    public void finishRent(){
+        System.out.println("Enter the customer cpf: ");
+        String customerCpf = input.next();
+
+        Customer currentCustomer = daoCustomer.find(customerCpf);
+        List<Car> cars = new ArrayList<>();
+        currentCustomer.setCars(cars);
+
+        currentCustomer.setHasCarRent(false);
+        daoCustomer.update(currentCustomer);
+
+    }
+
 }

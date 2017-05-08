@@ -10,15 +10,12 @@ import java.util.*;
 @Table(name = "customer", catalog = "easy_auto_db", uniqueConstraints = {
         @UniqueConstraint(columnNames = "customer_name"),
         @UniqueConstraint(columnNames = "customer_cpf"),
-        @UniqueConstraint(columnNames = "customer_registration_date"),
         @UniqueConstraint(columnNames = "customer_email"),
-        @UniqueConstraint(columnNames = "customer_has_car_rent"),
         @UniqueConstraint(columnNames = "customer_telephone") })
 public class Customer {
 
     private String name = "Not Register";
     private String cpf = "Not Register";
-    private Date registrationDate = new Date();
     private String email = "Not Register";
     private String telephone = "Not Register";
     private Address address = new Address();
@@ -57,16 +54,6 @@ public class Customer {
         this.cpf = cpf;
     }
 
-    @Temporal(TemporalType.DATE)
-    @Column(name = "customer_registration_date")
-    public Date getRegistrationDate() {
-        return this.registrationDate;
-    }
-
-    public void setRegistrationDate(Date birthDate) {
-        this.registrationDate = birthDate;
-    }
-
     @Column(name = "customer_email", unique = true, nullable = false)
     public String getEmail() {
         return this.email;
@@ -94,7 +81,7 @@ public class Customer {
         this.address = address;
     }
 
-    @Column(name = "customer_has_car_rent", unique = true, nullable = false)
+    @Column(name = "customer_has_car_rent", nullable = false)
     @Type(type="true_false")
     public boolean isHasCarRent() {
         return hasCarRent;
