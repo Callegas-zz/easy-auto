@@ -1,6 +1,6 @@
 package view;
 
-public class AsciiArt {
+public class ItemMenuFactory {
     ColorFactory colorFactory = new ColorFactory();
     private static String errorLog = " ";
     private static String successLog = " ";

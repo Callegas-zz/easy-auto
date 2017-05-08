@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    AsciiArt asciiArt = new AsciiArt();
+    ItemMenuFactory asciiArt = new ItemMenuFactory();
     ClearScreen clearScreen = new ClearScreen();
     Scanner input = new Scanner(System.in);
     RegisterCustomer registerCustomer = new RegisterCustomer();

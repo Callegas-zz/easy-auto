@@ -3,7 +3,7 @@ package controller;
 import model.Customer;
 import database.DAOCustomer;
 import model.Address;
-import view.AsciiArt;
+import view.ItemMenuFactory;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class RegisterCustomer {
     Customer customer = new Customer();
     Address address = new Address();
 
-    AsciiArt asciiArt = new AsciiArt();
+    ItemMenuFactory asciiArt = new ItemMenuFactory();
 
 
     public void registerNewCustomer() {

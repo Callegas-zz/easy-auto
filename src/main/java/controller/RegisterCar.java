@@ -2,13 +2,13 @@ package controller;
 
 import model.Car;
 import database.DAOCar;
-import view.AsciiArt;
+import view.ItemMenuFactory;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 public class RegisterCar {
-    AsciiArt asciiArt = new AsciiArt();
+    ItemMenuFactory asciiArt = new ItemMenuFactory();
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
     DAOCar daoCar = new DAOCar();
     Car car = new Car();

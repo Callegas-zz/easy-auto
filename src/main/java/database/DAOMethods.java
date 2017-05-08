@@ -1,12 +1,12 @@
 package database;
 
 import org.hibernate.Session;
-import view.AsciiArt;
+import view.ItemMenuFactory;
 import view.ClearScreen;
 
 public abstract class DAOMethods implements DAO {
     ClearScreen clearScreen = new ClearScreen();
-    AsciiArt asciiArt = new AsciiArt();
+    ItemMenuFactory asciiArt = new ItemMenuFactory();
 
     @Override
     public void save(Object object) {
