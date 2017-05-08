@@ -3,19 +3,23 @@ package register;
 import customer.Customer;
 import customer.DAOCustomer;
 import address.Address;
+import view.AsciiArt;
 
 import java.util.Scanner;
 
 public class RegisterCustomer {
+
 
     Scanner input = new Scanner(System.in);
     DAOCustomer daoCustomer = new DAOCustomer();
     Customer customer = new Customer();
     Address address = new Address();
 
+    AsciiArt asciiArt = new AsciiArt();
+
 
     public void registerNewCustomer() {
-        System.out.println("R E G I S T E R  N E W  C U S T O M E R: ");
+        asciiArt.asciiRegisterCustomer();
 
         System.out.print("Enter the name: ");
         registerCustomerName(input.next());

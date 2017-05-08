@@ -21,29 +21,33 @@ public class Menu {
         clearScreen.clear();
         int selection = 999;
 
-        asciiArt.asciiMainMenu();
-        selection = input.nextInt();
-        switch (selection){
-            case 0: {
-                clearScreen.clear();
-                asciiArt.asciiExitMessage();
-                System.exit(0);
-                break;
+        while (selection != 0) {
+            asciiArt.asciiMainMenu();
+            selection = input.nextInt();
+            switch (selection) {
+                case 0: {
+                    clearScreen.clear();
+                    asciiArt.asciiExitMessage();
+                    System.exit(0);
+                    break;
+                }
+                case 1: {
+                    menuCustomer();
+                    break;
+                }
+                case 2: {
+                    menuCar();
+                    break;
+                }
+                case 3: {
+                    menuService();
+                    break;
+                }
+                default: {
+                    clearScreen.clear();
+                    asciiArt.setErrorLog("Invalid option, please try again!");
+                }
             }
-            case 1: {
-                menuCustomer();
-                break;
-            }
-            case 2: {
-                menuCar();
-                break;
-            }
-            case 3: {
-                menuService();
-                break;
-            }
-            default:
-                System.out.println("Invalid option!");
         }
     }
 
@@ -76,7 +80,8 @@ public class Menu {
                     break;
                 }
                 default:
-                    System.out.println("Invalid option!");
+                    clearScreen.clear();
+                    asciiArt.setErrorLog("Invalid option, please try again!");
             }
         }
     }

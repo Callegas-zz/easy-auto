@@ -2,12 +2,13 @@ package register;
 
 import car.Car;
 import car.DAOCar;
+import view.AsciiArt;
 
 import java.util.Locale;
 import java.util.Scanner;
 
 public class RegisterCar {
-
+    AsciiArt asciiArt = new AsciiArt();
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
     DAOCar daoCar = new DAOCar();
     Car car = new Car();
