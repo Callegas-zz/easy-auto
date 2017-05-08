@@ -1,10 +1,12 @@
 package database;
 
 import org.hibernate.Session;
+import view.AsciiArt;
 import view.ClearScreen;
 
 public abstract class DAOMethods implements DAO {
     ClearScreen clearScreen = new ClearScreen();
+    AsciiArt asciiArt = new AsciiArt();
 
     @Override
     public void save(Object object) {
@@ -14,7 +16,7 @@ public abstract class DAOMethods implements DAO {
         session.getTransaction().commit();
         session.close();
         clearScreen.clear();
-        System.out.println("\n\nR E G I S T R A T I O N  W A S  S U C C E S S F U L! \n\n");
+        asciiArt.setSuccessLog("Registration was successful!");
     }
 
     @Override
@@ -25,7 +27,7 @@ public abstract class DAOMethods implements DAO {
         session.getTransaction().commit();
         session.close();
         clearScreen.clear();
-        System.out.println("\n\nR E M O V E D  S U C C E S S F U L L Y! \n\n");
+        asciiArt.setSuccessLog("Removed successful!");
     }
 
     public void update(Object object) {
@@ -35,7 +37,7 @@ public abstract class DAOMethods implements DAO {
         session.getTransaction().commit();
         session.close();
         clearScreen.clear();
-        System.out.println("\n\nU P D A T E  S U C C E S S F U L L Y! \n\n");
+        asciiArt.setSuccessLog("Successful!");
     }
 
 }

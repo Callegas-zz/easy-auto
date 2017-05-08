@@ -2,7 +2,16 @@ package view;
 
 public class AsciiArt {
     ColorFactory colorFactory = new ColorFactory();
-    private String errorLog = "";
+    private static String errorLog = " ";
+    private static String successLog = " ";
+
+    public String getSuccessLog() {
+        return successLog;
+    }
+
+    public void setSuccessLog(String successLog) {
+        this.successLog = successLog;
+    }
 
     public String getErrorLog() {
         return errorLog;
@@ -12,10 +21,6 @@ public class AsciiArt {
         this.errorLog = errorLog;
     }
 
-    public void asciiFacede(){
-        System.out.println(colorFactory.ANSI_CYAN_BACKGROUND);
-        System.out.println(colorFactory.ANSI_RESET);
-    }
 
     public void asciiExitMessage(){
         System.out.println(colorFactory.ANSI_YELLOW +" ________            __         ___                                _         \n" +
@@ -23,13 +28,11 @@ public class AsciiArt {
                 " / / / _ / _ `/ _ \\/  '_(_-<  / _/ _ \\/ __/ / __/ _ \\/  ' \\/  ' \\/ / _ / _ `/\n" +
                 "/_/ /_//_\\_,_/_//_/_/\\_/___/ /_/ \\___/_/    \\__/\\___/_/_/_/_/_/_/_/_//_\\_, / \n" +
                 "                                                                      /___/  ");
+
+        System.out.println("visit callegasdev.wordpress.com");
     }
 
     public void asciiMainMenu(){
-        asciiFacede();
-
-        System.out.println(getErrorLog());
-        setErrorLog("");
 
         System.out.println(colorFactory.ANSI_BLUE + "  _      ________   __  _________  __  _______   __________      _______   _____  __   ___  __  ____________ \n" +
                 " | | /| / / __/ /  / / / ___/ __ \\/  |/  / __/  /_  __/ __ \\    / __/ _ | / __\\ \\/ /  / _ |/ / / /_  __/ __ \\\n" +
@@ -39,21 +42,22 @@ public class AsciiArt {
         System.out.println("                                                                                        By Fellipe Callegas"+ colorFactory.ANSI_RESET);
 
         System.out.println(colorFactory.ANSI_YELLOW +"          ╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
-        System.out.println("          ║                           SELECT THE CURRENT OPTION                              ║");
-        System.out.println("          ║                                                                                  ║");
-        System.out.println("          ║                                1. Customer                                       ║");
-        System.out.println("          ║                                2. Car                                            ║");
-        System.out.println("          ║                                3. Service                                        ║");
-        System.out.println("          ║                                0. Exit                                           ║");
+        System.out.println("                                      SELECT THE CURRENT OPTION                               ");
+        System.out.println("                                                                                              ");
+        System.out.println("                                           1. Customer                                        ");
+        System.out.println("                                           2. Car                                             ");
+        System.out.println("                                           3. Service                                         ");
+        System.out.println("                                           0. Exit                                            ");
         System.out.println("          ╚════════════════════════════════════════════════════════════════════════════════════════════════╝\n" + ColorFactory.ANSI_RESET);
 
+        if(getErrorLog() != " ") {
+            System.out.println(colorFactory.ANSI_RED + getErrorLog() + colorFactory.ANSI_RESET);
+            setErrorLog(" ");
+        }
     }
 
     public void asciiCustomerMenu(){
-        asciiFacede();
 
-        System.out.println(getErrorLog());
-        setErrorLog("");
 
         System.out.println(colorFactory.ANSI_BLUE + "               _______  ________________  __  __________    ________________________  _  __\n" +
                 "              / ___/ / / / __/_  __/ __ \\/  |/  / __/ _ \\  / __/ __/ __/ __/  _/ __ \\/ |/ /\n" +
@@ -62,14 +66,23 @@ public class AsciiArt {
                 "                                                                              " + colorFactory.ANSI_RESET);
 
         System.out.println(colorFactory.ANSI_YELLOW +"          ╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
-        System.out.println("          ║                           SELECT THE CURRENT OPTION                              ║");
-        System.out.println("          ║                                                                                  ║");
-        System.out.println("          ║                           1. Register a new customer                             ║");
-        System.out.println("          ║                           2. Remove customer                                     ║");
-        System.out.println("          ║                           3. Find Customer                                       ║");
-        System.out.println("          ║                           0. Return to main menu                                 ║");
+        System.out.println("                                      SELECT THE CURRENT OPTION                               ");
+        System.out.println("                                                                                              ");
+        System.out.println("                                      1. Register a new customer                              ");
+        System.out.println("                                      2. Remove customer                                      ");
+        System.out.println("                                      3. Find Customer                                        ");
+        System.out.println("                                      0. Return to main menu                                  ");
         System.out.println("          ╚════════════════════════════════════════════════════════════════════════════════════════════════╝\n" + ColorFactory.ANSI_RESET);
 
+        if(getErrorLog() != " ") {
+            System.out.println(colorFactory.ANSI_RED + getErrorLog() + colorFactory.ANSI_RESET);
+            setErrorLog(" ");
+        }
+
+        if(getSuccessLog() != " ") {
+            System.out.println(colorFactory.ANSI_GREEN + getSuccessLog() + colorFactory.ANSI_RESET);
+            setSuccessLog(" ");
+        }
     }
 
     public void asciiRegisterCustomer(){
