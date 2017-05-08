@@ -8,28 +8,26 @@ import java.util.Scanner;
 
 public class Menu {
 
+    AsciiArt asciiArt = new AsciiArt();
     ClearScreen clearScreen = new ClearScreen();
     Scanner input = new Scanner(System.in);
     RegisterCustomer registerCustomer = new RegisterCustomer();
     RegisterCar registerCar = new RegisterCar();
     Rent rent = new Rent();
 
+
+
     public void showMenu() {
         clearScreen.clear();
         int selection = 999;
-        System.out.println("\n\n        W E L L C O M E  T O  E A S Y  A U T O");
-        System.out.println("                                       by callegas\n\n");
-        System.out.println("Choose one of the segments below: \n");
-        System.out.println("1 - Customer");
-        System.out.println("2 - Car");
-        System.out.println("3 - Service");
-        System.out.println("0 - Exit");
-        System.out.print("\n\nenter the option:");
+
+        asciiArt.asciiLogo();
+        asciiArt.asciiMainMenu();
         selection = input.nextInt();
         switch (selection){
             case 0: {
                 clearScreen.clear();
-                System.out.println("\n\nT H A N K S  F O R  C O M M I N G!");
+                asciiArt.asciiExitMessage();
                 System.exit(0);
                 break;
             }
@@ -147,7 +145,7 @@ public class Menu {
                     rent.newRent();
                     break;
                 }
-                case 2: {   
+                case 2: {
                     clearScreen.clear();
                     rent.finishRent();
                     break;
