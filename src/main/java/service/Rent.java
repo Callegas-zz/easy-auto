@@ -4,6 +4,9 @@ import car.Car;
 import car.DAOCar;
 import customer.Customer;
 import customer.DAOCustomer;
+import database.HibernateUtil;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import view.ClearScreen;
 
 import java.util.ArrayList;
@@ -50,11 +53,16 @@ public class Rent {
     public void finishRent(){
         System.out.println("Enter the customer cpf: ");
         String customerCpf = input.next();
-
         Customer currentCustomer = daoCustomer.find(customerCpf);
+
+        List<Car> carCustomer = currentCustomer.getCars();
+        System.out.println(carCustomer.get(0).getLicencePlate());
+        Car currentCar = daoCar.find(carCustomer.get(0).getLicencePlate());
+        currentCar.setAvailable(true);
+        daoCar.update(currentCar);
+
         List<Car> cars = new ArrayList<>();
         currentCustomer.setCars(cars);
-
         currentCustomer.setHasCarRent(false);
         daoCustomer.update(currentCustomer);
 

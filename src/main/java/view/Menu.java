@@ -147,7 +147,7 @@ public class Menu {
                     rent.newRent();
                     break;
                 }
-                case 2: {
+                case 2: {   
                     clearScreen.clear();
                     rent.finishRent();
                     break;

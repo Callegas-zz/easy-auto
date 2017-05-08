@@ -35,7 +35,7 @@ public class RegisterCar {
         System.out.print("Enter the KM car: ");
         registerCarKM(input.nextLong());
 
-        System.out.println("Enter the rent price for this car: ");
+        System.out.print("Enter the rent price for this car: ");
         registerCarRentPrice(input.nextDouble());
 
         daoCar.save(car);
