@@ -21,7 +21,6 @@ public class Menu {
         clearScreen.clear();
         int selection = 999;
 
-        asciiArt.asciiLogo();
         asciiArt.asciiMainMenu();
         selection = input.nextInt();
         switch (selection){
@@ -54,12 +53,7 @@ public class Menu {
         clearScreen.clear();
         int selection1 = 999;
         while (selection1 != 0) {
-            System.out.println("C U S T O M E R  S E S S I O N\n");
-            System.out.println("1 - Register a new customer");
-            System.out.println("2 - Remove customer");
-            System.out.println("3 - Find customer");
-            System.out.println("0 - Return to main menu");
-            System.out.print("\n\nenter the option:");
+            asciiArt.asciiCustomerMenu();
             selection1 = input.nextInt();
             switch (selection1) {
                 case 0: {
