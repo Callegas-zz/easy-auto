@@ -13,8 +13,6 @@ public class RegisterCar {
     DAOCar daoCar = new DAOCar();
     Car car = new Car();
 
-//    private Double motor;
-
     public void registerNewCar() {
         System.out.println("R E G I S T E R  N E W  C A R: ");
 
@@ -72,16 +70,10 @@ public class RegisterCar {
         return car.getKM();
     }
 
-    public String registerCarKindSeat(String seat){
-        car.setSeat(seat);
-        return car.getSeat();
-    }
-
     public Double registerCarRentPrice(Double price){
         car.setRentPrice(price);
         return car.getRentPrice();
     }
-
 
     public void removeCar() {
         System.out.println("D E L E T E  C A R");

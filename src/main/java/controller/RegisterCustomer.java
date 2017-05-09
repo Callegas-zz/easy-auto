@@ -3,6 +3,7 @@ package controller;
 import model.Customer;
 import database.DAOCustomer;
 import model.Address;
+import view.ColorFactory;
 import view.ItemMenuFactory;
 
 import java.util.Scanner;
@@ -15,40 +16,42 @@ public class RegisterCustomer {
     Customer customer = new Customer();
     Address address = new Address();
 
-    ItemMenuFactory asciiArt = new ItemMenuFactory();
-
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
+    ColorFactory colorFactory = new ColorFactory();
 
     public void registerNewCustomer() {
-        asciiArt.asciiRegisterCustomer();
+        itemMenuFactory.asciiRegisterCustomer();
 
-        System.out.print("Enter the name: ");
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
+        System.out.print("Enter the name:      ");
         registerCustomerName(input.next());
 
-        System.out.print("Enter the cpf: ");
+        System.out.print("Enter the cpf:       ");
         registerCustomerCpf(input.next());
 
-        System.out.print("Enter the email: ");
+        System.out.print("Enter the email:     ");
         registerCustomerEmail(input.next());
 
         System.out.print("Enter the telephone: ");
         registerCustomerTelephone(input.next());
 
-
-        System.out.print("Enter the zip code: ");
+        System.out.print("Enter the zip code:  ");
         registerCustomerAddressZip(input.next());
 
-        System.out.print("Enter the State: ");
+        System.out.print("Enter the State:     ");
         registerCustomerAddressState(input.next());
 
-        System.out.print("Enter the City: ");
+        System.out.print("Enter the City:      ");
         registerCustomerAddressCity(input.next());
 
-        System.out.print("Enter the street: ");
+        System.out.print("Enter the street:    ");
         registerCustomerAddressStreet(input.next());
 
-        System.out.print("Enter the number: ");
+        System.out.print("Enter the number:    ");
         registerCustomerAddresNumber(input.nextInt());
 
+        System.out.println(colorFactory.ANSI_RESET);
 
         customer.setAddress(address);
 

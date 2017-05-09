@@ -6,38 +6,54 @@ import view.ClearScreen;
 
 public abstract class DAOMethods implements DAO {
     ClearScreen clearScreen = new ClearScreen();
-    ItemMenuFactory asciiArt = new ItemMenuFactory();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
 
     @Override
     public void save(Object object) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(object);
-        session.getTransaction().commit();
-        session.close();
-        clearScreen.clear();
-        asciiArt.setSuccessLog("Registration was successful!");
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(object);
+            session.getTransaction().commit();
+            session.close();
+            clearScreen.clear();
+            itemMenuFactory.setSuccessLog("Registration was successful!");
+        }
+        catch (Exception e){
+            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+        }
     }
 
     @Override
     public void remove(String id) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.delete(find(id));
-        session.getTransaction().commit();
-        session.close();
-        clearScreen.clear();
-        asciiArt.setSuccessLog("Removed successful!");
+        try{
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.delete(find(id));
+            session.getTransaction().commit();
+            session.close();
+            clearScreen.clear();
+            itemMenuFactory.setSuccessLog("Removed successful!");
+        }
+        catch (Exception e) {
+            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+        }
+
     }
 
     public void update(Object object) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.update(object);
-        session.getTransaction().commit();
-        session.close();
-        clearScreen.clear();
-        asciiArt.setSuccessLog("Successful!");
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.update(object);
+            session.getTransaction().commit();
+            session.close();
+            clearScreen.clear();
+            itemMenuFactory.setSuccessLog("Successful!");
+        }
+        catch (Exception e){
+            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+        }
     }
 
 }
