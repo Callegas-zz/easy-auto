@@ -25,28 +25,44 @@ public class RegisterCustomer {
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
         System.out.print("Enter the name:      ");
-        registerCustomerName(input.next());
+        String name;
+        name = input.nextLine();
+        registerCustomerName(name);
 
         System.out.print("Enter the cpf:       ");
-        registerCustomerCpf(input.next());
+        String cpf;
+        cpf = input.nextLine();
+        registerCustomerCpf(cpf);
 
         System.out.print("Enter the email:     ");
-        registerCustomerEmail(input.next());
+        String email;
+        email = input.nextLine();
+        registerCustomerEmail(email);
 
         System.out.print("Enter the telephone: ");
-        registerCustomerTelephone(input.next());
+        String telephone;
+        telephone = input.nextLine();
+        registerCustomerTelephone(telephone);
 
         System.out.print("Enter the zip code:  ");
-        registerCustomerAddressZip(input.next());
+        String zipCode;
+        zipCode = input.nextLine();
+        registerCustomerAddressZip(zipCode);
 
         System.out.print("Enter the State:     ");
-        registerCustomerAddressState(input.next());
+        String state;
+        state = input.nextLine();
+        registerCustomerAddressState(state);
 
         System.out.print("Enter the City:      ");
-        registerCustomerAddressCity(input.next());
+        String city;
+        city = input.nextLine();
+        registerCustomerAddressCity(city);
 
         System.out.print("Enter the street:    ");
-        registerCustomerAddressStreet(input.next());
+        String street;
+        street = input.nextLine();
+        registerCustomerAddressStreet(street);
 
         System.out.print("Enter the number:    ");
         registerCustomerAddresNumber(input.nextInt());

@@ -18,6 +18,7 @@ public class Car {
     private byte places;
     private String category;
     private Double rentPrice;
+    @Type(type="true_false")
     private boolean available = true;
     @Type(type="true_false")
     private boolean armored;

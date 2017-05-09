@@ -36,7 +36,7 @@ public class Customer {
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "customer_car", catalog = "easy_auto_db", joinColumns = {
-            @JoinColumn(name = "customer_cpf", nullable = false, updatable = false) },
+            @JoinColumn(name = "customer_cpf", nullable = false, updatable = false)},
             inverseJoinColumns = { @JoinColumn(name = "car_licence_plate", nullable = false, updatable = false) })
     private List<Car> cars = new ArrayList<Car>();
 
