@@ -3,6 +3,7 @@ package controller;
 import model.Customer;
 import database.DAOCustomer;
 import model.Address;
+import validations.ValidateCPF;
 import view.ColorFactory;
 import view.ItemMenuFactory;
 
@@ -16,11 +17,15 @@ public class RegisterCustomer {
     Customer customer = new Customer();
     Address address = new Address();
 
+    ValidateCPF validateCPF = new ValidateCPF();
+
     ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
     ColorFactory colorFactory = new ColorFactory();
 
+
     public void registerNewCustomer() {
         itemMenuFactory.facadeRegisterCustomer();
+
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
@@ -29,10 +34,12 @@ public class RegisterCustomer {
         name = input.nextLine();
         registerCustomerName(name);
 
+        
         System.out.print("Enter the cpf:       ");
         String cpf;
         cpf = input.nextLine();
         registerCustomerCpf(cpf);
+
 
         System.out.print("Enter the email:     ");
         String email;
@@ -82,8 +89,11 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerCpf(String cpf){
-        customer.setCpf(cpf);
-        return customer.getCpf();
+        if (validateCPF.isCPF(cpf)) {
+            customer.setCpf(cpf);
+            return customer.getCpf();
+        }
+        return "Cpf isn't valid, try again: ";
     }
 
     public String registerCustomerEmail(String email) {
