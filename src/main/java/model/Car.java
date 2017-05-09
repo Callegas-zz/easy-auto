@@ -26,9 +26,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Manufacturer: " + this.manufacturer +
-                "\nModel: " + this.model +
-                "\nLicence plate: " + this.licencePlate;
+        return this.manufacturer + " " + this.model + " " +this.licencePlate;
     }
 
     public String getLicencePlate() {

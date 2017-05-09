@@ -22,7 +22,7 @@ public class ItemMenuFactory {
     }
 
 
-    public void asciiExitMessage(){
+    public void facadeExitMessage(){
         System.out.println(colorFactory.ANSI_YELLOW +" ________            __         ___                                _         \n" +
                 "/_  __/ / ___ ____  / /_____   / ____  ____  _______  __ _  __ _  (____ ___ _\n" +
                 " / / / _ / _ `/ _ \\/  '_(_-<  / _/ _ \\/ __/ / __/ _ \\/  ' \\/  ' \\/ / _ / _ `/\n" +
@@ -32,7 +32,7 @@ public class ItemMenuFactory {
         System.out.println("visit callegasdev.wordpress.com");
     }
 
-    public void asciiMainMenu(){
+    public void facadeMainMenu(){
 
         System.out.println(colorFactory.ANSI_BLUE + "  _      ________   __  _________  __  _______   __________      _______   _____  __   ___  __  ____________ \n" +
                 " | | /| / / __/ /  / / / ___/ __ \\/  |/  / __/  /_  __/ __ \\    / __/ _ | / __\\ \\/ /  / _ |/ / / /_  __/ __ \\\n" +
@@ -56,7 +56,7 @@ public class ItemMenuFactory {
         }
     }
 
-    public void asciiCustomerMenu(){
+    public void facadeCustomerMenu(){
 
 
         System.out.println(colorFactory.ANSI_BLUE + "               _______  ________________  __  __________    ________________________  _  __\n" +
@@ -85,12 +85,31 @@ public class ItemMenuFactory {
         }
     }
 
-    public void asciiRegisterCustomer(){
+    public void facadeRegisterCustomer(){
         System.out.println(colorFactory.ANSI_BLUE + "   ___  ______________________________      _  _______      __    _______  ________________  __  __________ \n" +
                 "  / _ \\/ __/ ___/  _/ __/_  __/ __/ _ \\    / |/ / __/ | /| / /   / ___/ / / / __/_  __/ __ \\/  |/  / __/ _ \\\n" +
                 " / , _/ _// (_ // /_\\ \\  / / / _// , _/   /    / _/ | |/ |/ /   / /__/ /_/ /\\ \\  / / / /_/ / /|_/ / _// , _/\n" +
                 "/_/|_/___/\\___/___/___/ /_/ /___/_/|_|   /_/|_/___/ |__/|__/    \\___/\\____/___/ /_/  \\____/_/  /_/___/_/|_|" + colorFactory.ANSI_RESET);
 
+        System.out.println("\n\n\n");
+    }
+
+    public void facadeDeleteCustomer(){
+        System.out.println(colorFactory.ANSI_BLUE + "   ___  ______   ______________  _______  ________________  __  __________ \n" +
+                "  / _ \\/ __/ /  / __/_  __/ __/ / ___/ / / / __/_  __/ __ \\/  |/  / __/ _ \\\n" +
+                " / // / _// /__/ _/  / / / _/  / /__/ /_/ /\\ \\  / / / /_/ / /|_/ / _// , _/\n" +
+                "/____/___/____/___/ /_/ /___/  \\___/\\____/___/ /_/  \\____/_/  /_/___/_/|_| \n" +
+                "                                                                           " + colorFactory.ANSI_RESET);
+        System.out.println("\n\n\n");
+    }
+
+
+    public void facadeFindCustomer(){
+        System.out.println(colorFactory.ANSI_BLUE + "   _________  _____    _______  ________________  __  __________ \n" +
+                "  / __/  _/ |/ / _ \\  / ___/ / / / __/_  __/ __ \\/  |/  / __/ _ \\\n" +
+                " / _/_/ //    / // / / /__/ /_/ /\\ \\  / / / /_/ / /|_/ / _// , _/\n" +
+                "/_/ /___/_/|_/____/  \\___/\\____/___/ /_/  \\____/_/  /_/___/_/|_| \n" +
+                "                                                                 " + colorFactory.ANSI_RESET);
         System.out.println("\n\n\n");
     }
 

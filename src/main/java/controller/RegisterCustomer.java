@@ -20,7 +20,7 @@ public class RegisterCustomer {
     ColorFactory colorFactory = new ColorFactory();
 
     public void registerNewCustomer() {
-        itemMenuFactory.asciiRegisterCustomer();
+        itemMenuFactory.facadeRegisterCustomer();
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
@@ -107,15 +107,32 @@ public class RegisterCustomer {
 
 
     public void findCustomer() {
-        System.out.println("F I N D  C U S T O M E R:");
+        itemMenuFactory.facadeFindCustomer();
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
         System.out.print("Enter the cpf for find customer: ");
+        System.out.print(colorFactory.ANSI_RESET);
+
         daoCustomer.find(input.next());
+
+
     }
 
     public void removeCustomer() {
-        System.out.println("D E L E T E  C U S T O M E R");
+        itemMenuFactory.facadeDeleteCustomer();
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
         System.out.print("Enter the cpf for DELETE customer: ");
+        System.out.print(colorFactory.ANSI_RESET);
+
+
         daoCustomer.remove(input.next());
+
+
+
+
     }
 
 }

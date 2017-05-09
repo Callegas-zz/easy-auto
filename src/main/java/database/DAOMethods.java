@@ -20,7 +20,7 @@ public abstract class DAOMethods implements DAO {
             itemMenuFactory.setSuccessLog("Registration was successful!");
         }
         catch (Exception e){
-            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+            itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
         }
     }
 
@@ -36,7 +36,7 @@ public abstract class DAOMethods implements DAO {
             itemMenuFactory.setSuccessLog("Removed successful!");
         }
         catch (Exception e) {
-            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+            itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
         }
 
     }
@@ -52,7 +52,7 @@ public abstract class DAOMethods implements DAO {
             itemMenuFactory.setSuccessLog("Successful!");
         }
         catch (Exception e){
-            itemMenuFactory.setErrorLog("an error in database has occurred, please try again ");
+            itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
         }
     }
 

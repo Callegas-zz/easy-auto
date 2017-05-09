@@ -98,11 +98,11 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Name: " + name +
-                "\nCpf: " + cpf +
-                "\nEmail: " + email +
-                "\nTelephone: " + telephone;
-
+        return "Customer: " + this.name +
+                "\nCpf: " + this.cpf +
+                "\nEmail: " + this.email +
+                "\nTelephone: " + this.telephone +
+                "\nAddress: " + this.address +
+                "\nCar rent: " + this.cars;
     }
-
 }

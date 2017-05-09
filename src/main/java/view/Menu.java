@@ -22,12 +22,12 @@ public class Menu {
         int selection = 999;
 
         while (selection != 0) {
-            asciiArt.asciiMainMenu();
+            asciiArt.facadeMainMenu();
             selection = input.nextInt();
             switch (selection) {
                 case 0: {
                     clearScreen.clear();
-                    asciiArt.asciiExitMessage();
+                    asciiArt.facadeExitMessage();
                     System.exit(0);
                     break;
                 }
@@ -57,7 +57,7 @@ public class Menu {
         clearScreen.clear();
         int selection1 = 999;
         while (selection1 != 0) {
-            asciiArt.asciiCustomerMenu();
+            asciiArt.facadeCustomerMenu();
             selection1 = input.nextInt();
             switch (selection1) {
                 case 0: {
