@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class RegisterCustomer {
 
 
-    Scanner input = new Scanner(System.in);
     DAOCustomer daoCustomer = new DAOCustomer();
     Customer customer = new Customer();
     Address address = new Address();
@@ -25,6 +24,7 @@ public class RegisterCustomer {
 
 
     public void registerNewCustomer() {
+
         itemMenuFactory.facadeRegisterCustomer();
 
         registerCustomerNameInput("");
@@ -68,7 +68,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerNameInput(String error){
-
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the name:      ");
@@ -91,6 +91,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerCpfInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the cpf:       ");
@@ -112,6 +113,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerEmailInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the email:     ");
@@ -134,6 +136,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerTelephoneInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the telephone: ");
@@ -155,7 +158,8 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerAddressZipInput(String error){
-       errorTest(error);
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
 
         System.out.print("Enter the zip code:  ");
         String zipCode;
@@ -167,6 +171,7 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerAddressState(String state){
+        Scanner input = new Scanner(System.in);
         if (validateFactory.validateName.isValid(state)) {
             address.setState(state);
             return address.getState();
@@ -175,6 +180,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerAddressStateInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the State:     ");
@@ -196,6 +202,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerAddressCityInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the City:      ");
@@ -217,6 +224,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerAddressStreetInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the street:    ");
@@ -239,6 +247,7 @@ public class RegisterCustomer {
     }
 
     public void registerCustomerAddressNumberInput(String error){
+        Scanner input = new Scanner(System.in);
         errorTest(error);
 
         System.out.print("Enter the number:    ");
@@ -253,6 +262,7 @@ public class RegisterCustomer {
 
 
     public void findCustomer() {
+        Scanner input = new Scanner(System.in);
         itemMenuFactory.facadeFindCustomer();
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
@@ -265,6 +275,7 @@ public class RegisterCustomer {
     }
 
     public void removeCustomer() {
+        Scanner input = new Scanner(System.in);
         itemMenuFactory.facadeDeleteCustomer();
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
@@ -274,9 +285,6 @@ public class RegisterCustomer {
 
 
         daoCustomer.remove(input.next());
-
-
-
 
     }
 
