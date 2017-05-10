@@ -30,12 +30,16 @@ public abstract class DAOMethods implements DAO {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.delete(find(id));
+            if (itemMenuFactory.getErrorLog() == "Not found!")
+                itemMenuFactory.setErrorLog("Impossible remove, not found!");
+            else {
+                itemMenuFactory.eraseLog();
+                itemMenuFactory.setSuccessLog("Removed successful!");
+            }
             session.getTransaction().commit();
             session.close();
             clearScreen.clear();
-            itemMenuFactory.setSuccessLog("Removed successful!");
-        }
-        catch (Exception e) {
+        }catch (Exception e) {
             itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
         }
 
@@ -50,8 +54,7 @@ public abstract class DAOMethods implements DAO {
             session.close();
             clearScreen.clear();
             itemMenuFactory.setSuccessLog("Successful!");
-        }
-        catch (Exception e){
+        }catch (Exception e){
             itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
         }
     }

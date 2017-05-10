@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "database", catalog = "easy_auto_db", uniqueConstraints = {
+@Table(name = "customer", catalog = "easy_auto_db", uniqueConstraints = {
         @UniqueConstraint(columnNames = "customer_cpf"),
         @UniqueConstraint(columnNames = "customer_email")})
 public class Customer {

@@ -142,7 +142,7 @@ public class RegisterCustomer {
         registerCustomerTelephone(telephone);
 
         if (registerCustomerTelephone(telephone) == "error")
-            registerCustomerTelephoneInput("Telephone isn't valid, try again: (Telephone example (51) 98573-7770: ");
+            registerCustomerTelephoneInput("Telephone isn't valid, try again: (Telephone example (51) 98573-7770) ");
 
     }
 
@@ -163,7 +163,7 @@ public class RegisterCustomer {
         registerCustomerAddressZip(zipCode);
 
         if (registerCustomerAddressZip(zipCode) == "error")
-            registerCustomerAddressZipInput("Zip code isn't valid, try again: (Zip code example 92325-299");
+            registerCustomerAddressZipInput("Zip code isn't valid, try again: (Zip code example 92325-299)");
     }
 
     public String registerCustomerAddressState(String state){
@@ -245,7 +245,7 @@ public class RegisterCustomer {
         int addressNumber = input.nextInt();
         registerCustomerAddressNumber(addressNumber);
 
-        System.out.println(colorFactory.ANSI_RESET);
+        System.out.print(colorFactory.ANSI_RESET);
 
         if (registerCustomerAddressNumber(addressNumber) == 0)
             registerCustomerAddressNumberInput("Number isn't valid, try again: ");

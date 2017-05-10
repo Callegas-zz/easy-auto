@@ -8,7 +8,6 @@ import view.ClearScreen;
 import view.ItemMenuFactory;
 
 public class DAOCustomer extends DAOMethods {
-    ClearScreen clearScreen = new ClearScreen();
     ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
 
 
@@ -23,7 +22,7 @@ public class DAOCustomer extends DAOMethods {
             session.close();
             return customerFind;
         }catch (Exception e){
-            itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
+            itemMenuFactory.setErrorLog("Not found!");
         }
         return new Customer();
     }
