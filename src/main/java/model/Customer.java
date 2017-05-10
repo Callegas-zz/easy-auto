@@ -7,14 +7,12 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "customer", catalog = "easy_auto_db", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "customer_name"),
+@Table(name = "database", catalog = "easy_auto_db", uniqueConstraints = {
         @UniqueConstraint(columnNames = "customer_cpf"),
-        @UniqueConstraint(columnNames = "customer_email"),
-        @UniqueConstraint(columnNames = "customer_telephone") })
+        @UniqueConstraint(columnNames = "customer_email")})
 public class Customer {
 
-    @Column(name = "customer_name", unique = true, nullable = false)
+    @Column(name = "customer_name", nullable = false)
     private String name = "Not Register";
 
     @Id
@@ -24,7 +22,7 @@ public class Customer {
     @Column(name = "customer_email", unique = true, nullable = false)
     private String email = "Not Register";
 
-    @Column(name = "customer_telephone", unique = true, nullable = false)
+    @Column(name = "customer_telephone", nullable = false)
     private String telephone = "Not Register";
 
     @Embedded

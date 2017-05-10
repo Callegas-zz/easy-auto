@@ -17,7 +17,7 @@ public class Rent {
     ClearScreen clearScreen = new ClearScreen();
 
     public void newRent(){
-        System.out.println("Enter the customer cpf: ");
+        System.out.println("Enter the database cpf: ");
         String customerCpf = input.next();
 
         System.out.println("Enter the car licence plate: ");
@@ -48,7 +48,7 @@ public class Rent {
     }
 
     public void finishRent(){
-        System.out.println("Enter the customer cpf: ");
+        System.out.println("Enter the database cpf: ");
         String customerCpf = input.next();
         Customer currentCustomer = daoCustomer.find(customerCpf);
 

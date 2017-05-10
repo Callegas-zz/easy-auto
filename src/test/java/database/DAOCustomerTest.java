@@ -1,6 +1,5 @@
-package customer;
+package database;
 
-import database.DAOCustomer;
 import model.Customer;
 import org.junit.Assert;
 import org.junit.Test;

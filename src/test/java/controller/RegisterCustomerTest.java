@@ -18,6 +18,11 @@ public class RegisterCustomerTest {
     }
 
     @Test
+    public void ifCpfIsWrongShouldNotRegisterIt(){
+        Assert.assertEquals(registerCustomer.registerCustomerCpf("030"), "error");
+    }
+
+    @Test
     public void isReceivingEmailAndSetting(){
         registerCustomer.registerCustomerEmail("callegas.f@gmail.com");
         Assert.assertEquals(registerCustomer.customer.getEmail(),"callegas.f@gmail.com");

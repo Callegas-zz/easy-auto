@@ -3,7 +3,7 @@ package controller;
 import model.Customer;
 import database.DAOCustomer;
 import model.Address;
-import validations.ValidateCPF;
+import validations.ValidateFactory;
 import view.ColorFactory;
 import view.ItemMenuFactory;
 
@@ -17,29 +17,18 @@ public class RegisterCustomer {
     Customer customer = new Customer();
     Address address = new Address();
 
-    ValidateCPF validateCPF = new ValidateCPF();
-
-    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
+    ValidateFactory validateFactory = new ValidateFactory();
     ColorFactory colorFactory = new ColorFactory();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
+
 
 
     public void registerNewCustomer() {
         itemMenuFactory.facadeRegisterCustomer();
-
-
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
-        System.out.print("Enter the name:      ");
-        String name;
-        name = input.nextLine();
-        registerCustomerName(name);
-
-        
-        System.out.print("Enter the cpf:       ");
-        String cpf;
-        cpf = input.nextLine();
-        registerCustomerCpf(cpf);
-
+        registerCustomerNameInput("");
+        registerCustomerCpfInput("");
 
         System.out.print("Enter the email:     ");
         String email;
@@ -82,18 +71,56 @@ public class RegisterCustomer {
 
     }
 
+    private void errorTest(String error){
+        if (error != "")
+            System.out.println(colorFactory.ANSI_RED + error + colorFactory.ANSI_RESET);
 
-    public String registerCustomerName(String name){
-        customer.setName(name);
-        return customer.getName();
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
     }
 
+
+    public String registerCustomerName(String name){
+        if (validateFactory.validateName.isName(name)) {
+            customer.setName(name);
+            return customer.getName();
+        }
+        return "error";
+    }
+
+    public void registerCustomerNameInput(String error){
+
+        errorTest(error);
+
+        System.out.print("Enter the name:      ");
+        String name;
+        name = input.nextLine();
+        registerCustomerName(name);
+
+        if (registerCustomerName(name) == "error"){
+            registerCustomerNameInput("Name isn't valid, try again: ");
+        }
+    }
+
+
     public String registerCustomerCpf(String cpf){
-        if (validateCPF.isCPF(cpf)) {
+        if (validateFactory.validateCPF.isCPF(cpf)) {
             customer.setCpf(cpf);
             return customer.getCpf();
         }
-        return "Cpf isn't valid, try again: ";
+        return "error";
+    }
+
+    public void registerCustomerCpfInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the cpf:       ");
+        String cpf;
+        cpf = input.nextLine();
+        registerCustomerCpf(cpf);
+
+        if (registerCustomerCpf(cpf) == "error"){
+            registerCustomerCpfInput("Cpf isn't valid, try again: ");
+        }
     }
 
     public String registerCustomerEmail(String email) {
@@ -137,7 +164,7 @@ public class RegisterCustomer {
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
-        System.out.print("Enter the cpf for find customer: ");
+        System.out.print("Enter the cpf for find database: ");
         System.out.print(colorFactory.ANSI_RESET);
 
         daoCustomer.find(input.next());
@@ -150,7 +177,7 @@ public class RegisterCustomer {
 
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
-        System.out.print("Enter the cpf for DELETE customer: ");
+        System.out.print("Enter the cpf for DELETE database: ");
         System.out.print(colorFactory.ANSI_RESET);
 
 

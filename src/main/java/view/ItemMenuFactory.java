@@ -68,8 +68,8 @@ public class ItemMenuFactory {
         System.out.println(colorFactory.ANSI_YELLOW +"          ╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
         System.out.println("                                      SELECT THE CURRENT OPTION                               ");
         System.out.println("                                                                                              ");
-        System.out.println("                                      1. Register a new customer                              ");
-        System.out.println("                                      2. Remove customer                                      ");
+        System.out.println("                                      1. Register a new database                              ");
+        System.out.println("                                      2. Remove database                                      ");
         System.out.println("                                      3. Find Customer                                        ");
         System.out.println("                                      0. Return to main menu                                  ");
         System.out.println("          ╚════════════════════════════════════════════════════════════════════════════════════════════════╝\n" + ColorFactory.ANSI_RESET);
