@@ -24,6 +24,11 @@ public class registerCarTest {
     }
 
     @Test
+    public void ifTryToRegisterInvalidModel(){
+        Assert.assertEquals( "error", registerCar.registerCarModel( "f1est." ) );
+    }
+
+    @Test
     public void isReceivingLicencePlateAndSetting(){
         registerCar.registerCarLicencePlate("mfi-4115");
         Assert.assertEquals(registerCar.car.getLicencePlate(),"mfi-4115");

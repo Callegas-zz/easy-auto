@@ -22,8 +22,7 @@ public class RegisterCar {
 
         registerCarManufacturerInput("");
 
-        System.out.print("Enter the car model: ");
-        registerCarModel(input.next());
+        registerCarModelInput( "" );
 
         System.out.print("Enter the car licence plate: ");
         registerCarLicencePlate(input.next());
@@ -73,11 +72,28 @@ public class RegisterCar {
     }
 
     public String registerCarModel(String model) {
-        car.setModel(model);
-        return car.getModel();
+        if (validateFactory.validateName.isValid( model )) {
+            car.setModel( model );
+            return car.getModel();
+        }
+        return "error";
+    }
+
+    public void registerCarModelInput(String error) {
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the model:        ");
+        String model;
+        model = input.nextLine();
+        registerCarModel(model);
+
+        if(registerCarModel(model) == "error")
+            registerCarModelInput( "Name isn't valid, try again: " );
     }
 
     public String registerCarLicencePlate(String licencePlate) {
+
         car.setLicencePlate(licencePlate);
         return car.getLicencePlate();
     }
