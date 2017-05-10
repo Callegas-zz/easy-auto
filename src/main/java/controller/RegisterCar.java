@@ -8,13 +8,13 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class RegisterCar {
-    ItemMenuFactory asciiArt = new ItemMenuFactory();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
     DAOCar daoCar = new DAOCar();
     Car car = new Car();
 
     public void registerNewCar() {
-        System.out.println("R E G I S T E R  N E W  C A R: ");
+        itemMenuFactory.facadeRegisterCar();
 
         System.out.print("Enter the car manufacturer: ");
         registerCarManufacturer(input.next());

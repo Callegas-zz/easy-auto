@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    ItemMenuFactory asciiArt = new ItemMenuFactory();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
     ClearScreen clearScreen = new ClearScreen();
     Scanner input = new Scanner(System.in);
     RegisterCustomer registerCustomer = new RegisterCustomer();
@@ -22,12 +22,12 @@ public class Menu {
         int selection = 999;
 
         while (selection != 0) {
-            asciiArt.facadeMainMenu();
+            itemMenuFactory.facadeMainMenu();
             selection = input.nextInt();
             switch (selection) {
                 case 0: {
                     clearScreen.clear();
-                    asciiArt.facadeExitMessage();
+                    itemMenuFactory.facadeExitMessage();
                     System.exit(0);
                     break;
                 }
@@ -45,7 +45,7 @@ public class Menu {
                 }
                 default: {
                     clearScreen.clear();
-                    asciiArt.setErrorLog("Invalid option, please try again!");
+                    itemMenuFactory.setErrorLog("Invalid option, please try again!");
                 }
             }
         }
@@ -57,7 +57,7 @@ public class Menu {
         clearScreen.clear();
         int selection1 = 999;
         while (selection1 != 0) {
-            asciiArt.facadeCustomerMenu();
+            itemMenuFactory.facadeCustomerMenu();
             selection1 = input.nextInt();
             switch (selection1) {
                 case 0: {
@@ -81,7 +81,7 @@ public class Menu {
                 }
                 default:
                     clearScreen.clear();
-                    asciiArt.setErrorLog("Invalid option, please try again!");
+                    itemMenuFactory.setErrorLog("Invalid option, please try again!");
             }
         }
     }
@@ -91,12 +91,7 @@ public class Menu {
         clearScreen.clear();
         int selection2 = 999;
         while (selection2 != 0) {
-            System.out.println("C A R  S E S S I O N\n");
-            System.out.println("1 - Register a new car");
-            System.out.println("2 - Remove car");
-            System.out.println("3 - Find car");
-            System.out.println("0 - Return to main menu");
-            System.out.print("\n\nenter the option:");
+            itemMenuFactory.facadeCarMenu();
             selection2 = input.nextInt();
             switch (selection2) {
                 case 0: {

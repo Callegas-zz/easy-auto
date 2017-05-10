@@ -16,7 +16,6 @@ public class Car {
     private Long KM;
     private Double engine;
     private byte places;
-    private String category;
     private Double rentPrice;
     @Type(type="true_false")
     private boolean available = true;
@@ -84,14 +83,6 @@ public class Car {
 
     public void setPlaces(byte places) {
         this.places = places;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public Double getRentPrice() {

@@ -86,6 +86,7 @@ public class ItemMenuFactory {
         }
     }
 
+
     public void facadeRegisterCustomer(){
         System.out.println(colorFactory.ANSI_BLUE + "   ___  ______________________________      _  _______      __    _______  ________________  __  __________ \n" +
                 "  / _ \\/ __/ ___/  _/ __/_  __/ __/ _ \\    / |/ / __/ | /| / /   / ___/ / / / __/_  __/ __ \\/  |/  / __/ _ \\\n" +
@@ -111,6 +112,44 @@ public class ItemMenuFactory {
                 " / _/_/ //    / // / / /__/ /_/ /\\ \\  / / / /_/ / /|_/ / _// , _/\n" +
                 "/_/ /___/_/|_/____/  \\___/\\____/___/ /_/  \\____/_/  /_/___/_/|_| \n" +
                 "                                                                 " + colorFactory.ANSI_RESET);
+        System.out.println("\n\n\n");
+    }
+
+    public void facadeCarMenu(){
+
+        System.out.println(colorFactory.ANSI_BLUE + "                ________   ___    ________________________  _  __\n" +
+                "               / ___/ _ | / _ \\  / __/ __/ __/ __/  _/ __ \\/ |/ /\n" +
+                "              / /__/ __ |/ , _/ _\\ \\/ _/_\\ \\_\\ \\_/ // /_/ /    / \n" +
+                "              \\___/_/ |_/_/|_| /___/___/___/___/___/\\____/_/|_/  \n" +
+                "                                                   " + colorFactory.ANSI_RESET);
+
+        System.out.println(colorFactory.ANSI_YELLOW +"          ╔════════════════════════════════════════════════════════════════════════════════════════════════╗");
+        System.out.println("                                      SELECT THE CURRENT OPTION                               ");
+        System.out.println("                                                                                              ");
+        System.out.println("                                      1. Register a new car                                   ");
+        System.out.println("                                      2. Remove car                                           ");
+        System.out.println("                                      3. Find car                                             ");
+        System.out.println("                                      0. Return to main menu                                  ");
+        System.out.println("          ╚════════════════════════════════════════════════════════════════════════════════════════════════╝\n" + ColorFactory.ANSI_RESET);
+
+        if(getErrorLog() != " ") {
+            System.out.println(colorFactory.ANSI_RED + getErrorLog() + colorFactory.ANSI_RESET);
+            setErrorLog(" ");
+        }
+
+        if(getSuccessLog() != " ") {
+            System.out.println(colorFactory.ANSI_GREEN + getSuccessLog() + colorFactory.ANSI_RESET);
+            setSuccessLog(" ");
+        }
+    }
+
+    public void facadeRegisterCar(){
+        System.out.println(colorFactory.ANSI_BLUE + "   ___  ______________________________    _  _______      __  ________   ___ \n" +
+                "  / _ \\/ __/ ___/  _/ __/_  __/ __/ _ \\  / |/ / __/ | /| / / / ___/ _ | / _ \\\n" +
+                " / , _/ _// (_ // /_\\ \\  / / / _// , _/ /    / _/ | |/ |/ / / /__/ __ |/ , _/\n" +
+                "/_/|_/___/\\___/___/___/ /_/ /___/_/|_| /_/|_/___/ |__/|__/  \\___/_/ |_/_/|_| \n" +
+                "                                                                             " + colorFactory.ANSI_RESET);
+
         System.out.println("\n\n\n");
     }
 
