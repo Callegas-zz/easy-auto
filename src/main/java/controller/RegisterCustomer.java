@@ -3,7 +3,7 @@ package controller;
 import model.Customer;
 import database.DAOCustomer;
 import model.Address;
-import validations.ValidateFactory;
+import valitadors.ValidateFactory;
 import view.ColorFactory;
 import view.ItemMenuFactory;
 

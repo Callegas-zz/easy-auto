@@ -1,4 +1,4 @@
-package validations;
+package valitadors;
 
 import java.util.InputMismatchException;
 
