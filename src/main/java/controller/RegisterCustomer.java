@@ -31,10 +31,7 @@ public class RegisterCustomer {
 
         registerCustomerCpfInput("");
 
-        System.out.print("Enter the email:     ");
-        String email;
-        email = input.nextLine();
-        registerCustomerEmail(email);
+        registerCustomerEmailInput("");
 
         System.out.print("Enter the telephone: ");
         String telephone;
@@ -117,11 +114,25 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerEmail(String email) {
-        customer.setEmail(email);
-        return customer.getEmail();
+       if (validateFactory.validateEmail.isValid(email)) {
+           customer.setEmail(email);
+           return customer.getEmail();
+       }
+        return "error";
     }
 
     public void registerCustomerEmailInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the email:     ");
+        String email;
+        email = input.nextLine();
+        registerCustomerEmail(email);
+
+
+        if ( registerCustomerEmail(email) == "error"){
+            registerCustomerEmailInput("Email isn't valid, try again: ");
+        }
 
     }
 
