@@ -26,7 +26,6 @@ public class RegisterCustomer {
 
     public void registerNewCustomer() {
         itemMenuFactory.facadeRegisterCustomer();
-        //System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
         registerCustomerNameInput("");
 
@@ -45,8 +44,6 @@ public class RegisterCustomer {
         registerCustomerAddressStreetInput("");
 
         registerCustomerAddressNumberInput("");
-
-        //System.out.println(colorFactory.ANSI_RESET);
 
         customer.setAddress(address);
 

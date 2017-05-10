@@ -13,18 +13,19 @@ public class DAOCustomer extends DAOMethods {
 
 
     public Customer find(String cpf){
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        Customer customerFind = (Customer) session.load(Customer.class, cpf);
-        clearScreen.clear();
-        itemMenuFactory.setSuccessLog(customerFind.toString());
-        session.getTransaction().commit();
-        session.close();
-        return customerFind;
-    }
-
-    public static void clearScreen(){
-        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            Customer customerFind = (Customer) session.load(Customer.class, cpf);
+            clearScreen.clear();
+            itemMenuFactory.setSuccessLog(customerFind.toString());
+            session.getTransaction().commit();
+            session.close();
+            return customerFind;
+        }catch (Exception e){
+            itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
+        }
+        return new Customer();
     }
 
 }
