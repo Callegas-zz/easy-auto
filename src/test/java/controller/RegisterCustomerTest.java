@@ -40,8 +40,13 @@ public class RegisterCustomerTest {
 
     @Test
     public void isReceivingTelephoneAndSetting(){
-        registerCustomer.registerCustomerTelephone("(51)99999-9999");
+        registerCustomer.registerCustomerTelephone("(51) 99999-9999");
         Assert.assertEquals(registerCustomer.customer.getTelephone(), "(51)99999-9999");
+    }
+
+    @Test
+    public void ifTryToRegisterInvalidTelephone(){
+        Assert.assertEquals("error",registerCustomer.registerCustomerTelephone("85737770"));
     }
 
     @Test

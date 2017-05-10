@@ -33,10 +33,7 @@ public class RegisterCustomer {
 
         registerCustomerEmailInput("");
 
-        System.out.print("Enter the telephone: ");
-        String telephone;
-        telephone = input.nextLine();
-        registerCustomerTelephone(telephone);
+        registerCustomerTelephoneInput("");
 
         System.out.print("Enter the zip code:  ");
         String zipCode;
@@ -86,9 +83,9 @@ public class RegisterCustomer {
         name = input.nextLine();
         registerCustomerName(name);
 
-        if (registerCustomerName(name) == "error"){
+        if (registerCustomerName(name) == "error")
             registerCustomerNameInput("Name isn't valid, try again: ");
-        }
+
     }
 
 
@@ -108,9 +105,9 @@ public class RegisterCustomer {
         cpf = input.nextLine();
         registerCustomerCpf(cpf);
 
-        if (registerCustomerCpf(cpf) == "error"){
+        if (registerCustomerCpf(cpf) == "error")
             registerCustomerCpfInput("Cpf isn't valid, try again: ");
-        }
+
     }
 
     public String registerCustomerEmail(String email) {
@@ -130,15 +127,30 @@ public class RegisterCustomer {
         registerCustomerEmail(email);
 
 
-        if ( registerCustomerEmail(email) == "error"){
+        if ( registerCustomerEmail(email) == "error")
             registerCustomerEmailInput("Email isn't valid, try again: ");
-        }
 
     }
 
     public String registerCustomerTelephone(String telephone){
-        customer.setTelephone(telephone);
-        return customer.getTelephone();
+        if(validateFactory.validadePhone.isValid(telephone)) {
+            customer.setTelephone(telephone);
+            return customer.getTelephone();
+        }
+        return "error";
+    }
+
+    public void registerCustomerTelephoneInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the telephone: ");
+        String telephone;
+        telephone = input.nextLine();
+        registerCustomerTelephone(telephone);
+
+        if (registerCustomerTelephone(telephone) == "error")
+            registerCustomerTelephoneInput("Telephone isn't valid, try again (Telephone example (51) 98573-7770: ");
+
     }
 
     public String registerCustomerAddressZip(String zip) {
@@ -162,9 +174,9 @@ public class RegisterCustomer {
         state = input.nextLine();
         registerCustomerAddressState(state);
 
-        if (registerCustomerAddressState(state) == "error"){
+        if (registerCustomerAddressState(state) == "error")
             registerCustomerAddressStateInput("State isn't valid, try again: ");
-        }
+
     }
 
     public String registerCustomerAddressCity(String city){
@@ -183,9 +195,8 @@ public class RegisterCustomer {
         city = input.nextLine();
         registerCustomerAddressCity(city);
 
-        if (registerCustomerAddressCity(city) == "error"){
+        if (registerCustomerAddressCity(city) == "error")
             registerCustomerAddressCityInput("State isn't valid, try again: ");
-        }
 
     }
 
@@ -205,9 +216,8 @@ public class RegisterCustomer {
         street = input.nextLine();
         registerCustomerAddressStreet(street);
 
-        if (registerCustomerAddressStreet(street) == "error"){
+        if (registerCustomerAddressStreet(street) == "error")
             registerCustomerAddressStreetInput("Street isn't valid, try again: ");
-        }
 
     }
 
