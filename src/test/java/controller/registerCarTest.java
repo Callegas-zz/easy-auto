@@ -30,8 +30,13 @@ public class registerCarTest {
 
     @Test
     public void isReceivingLicencePlateAndSetting(){
-        registerCar.registerCarLicencePlate("mfi-4115");
-        Assert.assertEquals(registerCar.car.getLicencePlate(),"mfi-4115");
+        registerCar.registerCarLicencePlate("MFI-4115");
+        Assert.assertEquals(registerCar.car.getLicencePlate(),"MFI-4115");
+    }
+
+    @Test
+    public void ifTryToRegisterInvalidLicencePlate(){
+        Assert.assertEquals( "error", registerCar.registerCarLicencePlate( "jj-33" ) );
     }
 
     @Test

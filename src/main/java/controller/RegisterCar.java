@@ -24,8 +24,7 @@ public class RegisterCar {
 
         registerCarModelInput( "" );
 
-        System.out.print("Enter the car licence plate: ");
-        registerCarLicencePlate(input.next());
+        registerCarLicencePlateInput( "" );
 
         System.out.print("Enter the car year: ");
         registerCarYear(input.nextInt());
@@ -61,7 +60,7 @@ public class RegisterCar {
         Scanner input = new Scanner(System.in);
         errorTest(error);
 
-        System.out.print("Enter the manufacturer: ");
+        System.out.print("Enter the manufacturer:  ");
         String manufacturer;
         manufacturer = input.nextLine();
         registerCarManufacturer(manufacturer);
@@ -83,7 +82,7 @@ public class RegisterCar {
         Scanner input = new Scanner(System.in);
         errorTest(error);
 
-        System.out.print("Enter the model:        ");
+        System.out.print("Enter the model:         ");
         String model;
         model = input.nextLine();
         registerCarModel(model);
@@ -93,9 +92,25 @@ public class RegisterCar {
     }
 
     public String registerCarLicencePlate(String licencePlate) {
-
-        car.setLicencePlate(licencePlate);
+        if (validateFactory.validateLicencePlate.isValid( licencePlate )) {
+        car.setLicencePlate( licencePlate );
         return car.getLicencePlate();
+        }
+        return "error";
+    }
+
+    public void registerCarLicencePlateInput(String error){
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the licence plate: ");
+        String licencePlate;
+        licencePlate = input.nextLine();
+        registerCarLicencePlate(licencePlate);
+
+        if(registerCarLicencePlate(licencePlate) == "error")
+            registerCarLicencePlateInput( "Licence plate isn't valid, try again: " );
+
     }
 
     public Integer registerCarYear(Integer year){

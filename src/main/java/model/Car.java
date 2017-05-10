@@ -9,7 +9,6 @@ public class Car {
     @Id
     @Column(name = "car_licence_plate", unique = true, nullable = false)
     private String licencePlate;
-
     private String manufacturer;
     private String model;
     private Integer year;
