@@ -12,14 +12,19 @@ public class RegisterCustomerTest {
     }
 
     @Test
+    public void ifTryRegisterNotValidName(){
+        Assert.assertEquals("error",registerCustomer.registerCustomerName("f3llipe"));
+    }
+
+    @Test
     public void isReceivingCpfAndSetting(){
-        registerCustomer.registerCustomerCpf("02756972000");
-        Assert.assertEquals(registerCustomer.customer.getCpf(), "02756972000");
+        registerCustomer.registerCustomerCpf("02756972070");
+        Assert.assertEquals(registerCustomer.customer.getCpf(), "02756972070");
     }
 
     @Test
     public void ifCpfIsWrongShouldNotRegisterIt(){
-        Assert.assertEquals(registerCustomer.registerCustomerCpf("030"), "error");
+        Assert.assertEquals("error", registerCustomer.registerCustomerCpf("03055") );
     }
 
     @Test

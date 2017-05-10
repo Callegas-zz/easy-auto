@@ -28,6 +28,7 @@ public class RegisterCustomer {
         System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
         registerCustomerNameInput("");
+
         registerCustomerCpfInput("");
 
         System.out.print("Enter the email:     ");
@@ -45,23 +46,15 @@ public class RegisterCustomer {
         zipCode = input.nextLine();
         registerCustomerAddressZip(zipCode);
 
-        System.out.print("Enter the State:     ");
-        String state;
-        state = input.nextLine();
-        registerCustomerAddressState(state);
+        registerCustomerAddressStateInput("");
 
-        System.out.print("Enter the City:      ");
-        String city;
-        city = input.nextLine();
-        registerCustomerAddressCity(city);
+        registerCustomerAddressCityInput("");
 
-        System.out.print("Enter the street:    ");
-        String street;
-        street = input.nextLine();
-        registerCustomerAddressStreet(street);
+        registerCustomerAddressStreetInput("");
+
 
         System.out.print("Enter the number:    ");
-        registerCustomerAddresNumber(input.nextInt());
+        registerCustomerAddressNumber(input.nextInt());
 
         System.out.println(colorFactory.ANSI_RESET);
 
@@ -139,21 +132,72 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerAddressState(String state){
-        address.setState(state);
-        return address.getState();
+        if (validateFactory.validateName.isName(state)) {
+            address.setState(state);
+            return address.getState();
+        }
+        return "error";
+    }
+
+    public void registerCustomerAddressStateInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the State:     ");
+        String state;
+        state = input.nextLine();
+        registerCustomerAddressState(state);
+
+        if (registerCustomerAddressState(state) == "error"){
+            registerCustomerAddressStateInput("State isn't valid, try again: ");
+        }
     }
 
     public String registerCustomerAddressCity(String city){
-        address.setCity(city);
-        return address.getCity();
+        if (validateFactory.validateName.isName(city)) {
+            address.setCity(city);
+            return address.getCity();
+        }
+        return "error";
+    }
+
+    public void registerCustomerAddressCityInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the City:      ");
+        String city;
+        city = input.nextLine();
+        registerCustomerAddressCity(city);
+
+        if (registerCustomerAddressCity(city) == "error"){
+            registerCustomerAddressCityInput("State isn't valid, try again: ");
+        }
+
     }
 
     public String registerCustomerAddressStreet(String street){
-        address.setStreet(street);
-        return address.getStreet();
+        if (validateFactory.validateName.isName(street)) {
+            address.setStreet(street);
+            return address.getStreet();
+        }
+        return "error";
     }
 
-    public int registerCustomerAddresNumber(Integer number){
+    public void registerCustomerAddressStreetInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the street:    ");
+        String street;
+        street = input.nextLine();
+        registerCustomerAddressStreet(street);
+
+        if (registerCustomerAddressStreet(street) == "error"){
+            registerCustomerAddressStreetInput("Street isn't valid, try again: ");
+        }
+
+    }
+
+
+    public int registerCustomerAddressNumber(Integer number){
         address.setNumber(number);
         return address.getNumber();
     }
