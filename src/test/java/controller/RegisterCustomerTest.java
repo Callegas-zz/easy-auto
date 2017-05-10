@@ -52,9 +52,19 @@ public class RegisterCustomerTest {
     }
 
     @Test
+    public void ifTryRegisterNotValidState(){
+        Assert.assertEquals("error",registerCustomer.registerCustomerAddressState("R1o"));
+    }
+
+    @Test
     public void isReceivingAddressCityAndSetting(){
         registerCustomer.registerCustomerAddressCity("Fresno");
         Assert.assertEquals(registerCustomer.address.getCity(),"Fresno");
+    }
+
+    @Test
+    public void ifTryRegisterNotValidCity(){
+        Assert.assertEquals("error",registerCustomer.registerCustomerAddressCity("ipa.nema5"));
     }
 
     @Test
@@ -64,8 +74,13 @@ public class RegisterCustomerTest {
     }
 
     @Test
+    public void ifTryRegisterNotValidStreet(){
+        Assert.assertEquals("error",registerCustomer.registerCustomerAddressStreet("samp.@ri"));
+    }
+
+    @Test
     public void isReceivingAddressNumberAndSetting(){
-        registerCustomer.registerCustomerAddresNumber(1855);
+        registerCustomer.registerCustomerAddressNumber(1855);
         Assert.assertEquals(new Long(registerCustomer.address.getNumber()),new Long(1855));
     }
 
