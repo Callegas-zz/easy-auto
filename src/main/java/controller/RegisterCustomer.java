@@ -4,6 +4,7 @@ import model.Customer;
 import database.DAOCustomer;
 import model.Address;
 import valitadors.ValidateFactory;
+import valitadors.ValidateZipCode;
 import view.ColorFactory;
 import view.ItemMenuFactory;
 
@@ -25,7 +26,7 @@ public class RegisterCustomer {
 
     public void registerNewCustomer() {
         itemMenuFactory.facadeRegisterCustomer();
-        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+        //System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
         registerCustomerNameInput("");
 
@@ -35,10 +36,7 @@ public class RegisterCustomer {
 
         registerCustomerTelephoneInput("");
 
-        System.out.print("Enter the zip code:  ");
-        String zipCode;
-        zipCode = input.nextLine();
-        registerCustomerAddressZip(zipCode);
+        registerCustomerAddressZipInput("");
 
         registerCustomerAddressStateInput("");
 
@@ -46,11 +44,9 @@ public class RegisterCustomer {
 
         registerCustomerAddressStreetInput("");
 
+        registerCustomerAddressNumberInput("");
 
-        System.out.print("Enter the number:    ");
-        registerCustomerAddressNumber(input.nextInt());
-
-        System.out.println(colorFactory.ANSI_RESET);
+        //System.out.println(colorFactory.ANSI_RESET);
 
         customer.setAddress(address);
 
@@ -149,13 +145,28 @@ public class RegisterCustomer {
         registerCustomerTelephone(telephone);
 
         if (registerCustomerTelephone(telephone) == "error")
-            registerCustomerTelephoneInput("Telephone isn't valid, try again (Telephone example (51) 98573-7770: ");
+            registerCustomerTelephoneInput("Telephone isn't valid, try again: (Telephone example (51) 98573-7770: ");
 
     }
 
     public String registerCustomerAddressZip(String zip) {
-        address.setZip(zip);
-        return address.getZip();
+        if (validateFactory.validateZipCode.isValid(zip)) {
+            address.setZip(zip);
+            return address.getZip();
+        }
+        return "error";
+    }
+
+    public void registerCustomerAddressZipInput(String error){
+       errorTest(error);
+
+        System.out.print("Enter the zip code:  ");
+        String zipCode;
+        zipCode = input.nextLine();
+        registerCustomerAddressZip(zipCode);
+
+        if (registerCustomerAddressZip(zipCode) == "error")
+            registerCustomerAddressZipInput("Zip code isn't valid, try again: (Zip code example 92325-299");
     }
 
     public String registerCustomerAddressState(String state){
@@ -223,8 +234,24 @@ public class RegisterCustomer {
 
 
     public int registerCustomerAddressNumber(Integer number){
-        address.setNumber(number);
-        return address.getNumber();
+        if (validateFactory.validateAddressNumber.isValid(number)) {
+            address.setNumber(number);
+            return address.getNumber();
+        }
+        return 0;
+    }
+
+    public void registerCustomerAddressNumberInput(String error){
+        errorTest(error);
+
+        System.out.print("Enter the number:    ");
+        int addressNumber = input.nextInt();
+        registerCustomerAddressNumber(addressNumber);
+
+        System.out.println(colorFactory.ANSI_RESET);
+
+        if (registerCustomerAddressNumber(addressNumber) == 0)
+            registerCustomerAddressNumberInput("Number isn't valid, try again: ");
     }
 
 

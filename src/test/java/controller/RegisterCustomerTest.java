@@ -56,6 +56,11 @@ public class RegisterCustomerTest {
     }
 
     @Test
+    public void ifTryToRegisterInvalidZipCode(){
+        Assert.assertEquals("error", registerCustomer.registerCustomerAddressZip("92444-99"));
+    }
+
+    @Test
     public void isReceivingAddressStateAndSetting(){
         registerCustomer.registerCustomerAddressState("California");
         Assert.assertEquals(registerCustomer.address.getState(),"California");
@@ -92,6 +97,11 @@ public class RegisterCustomerTest {
     public void isReceivingAddressNumberAndSetting(){
         registerCustomer.registerCustomerAddressNumber(1855);
         Assert.assertEquals(new Long(registerCustomer.address.getNumber()),new Long(1855));
+    }
+
+    @Test
+    public void ifTryRegisterinvalidAddressNumber(){
+        Assert.assertEquals(0, registerCustomer.registerCustomerAddressNumber(0));
     }
 
 }
