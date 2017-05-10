@@ -13,6 +13,11 @@ public class registerCarTest {
     }
 
     @Test
+    public void ifTryToRegisterInvalidManufacturer(){
+        Assert.assertEquals( "error", registerCar.registerCarManufacturer( "F1t.@" ) );
+    }
+
+    @Test
     public void isReceivingModelAndSetting(){
         registerCar.registerCarModel("Fiesta");
         Assert.assertEquals(registerCar.car.getModel(),"Fiesta");

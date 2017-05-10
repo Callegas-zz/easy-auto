@@ -2,6 +2,8 @@ package controller;
 
 import model.Car;
 import database.DAOCar;
+import valitadors.ValidateFactory;
+import view.ColorFactory;
 import view.ItemMenuFactory;
 
 import java.util.Locale;
@@ -9,15 +11,16 @@ import java.util.Scanner;
 
 public class RegisterCar {
     ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
+    ColorFactory colorFactory = new ColorFactory();
     Scanner input = new Scanner(System.in).useLocale(Locale.US);
     DAOCar daoCar = new DAOCar();
     Car car = new Car();
+    ValidateFactory validateFactory = new ValidateFactory();
 
     public void registerNewCar() {
         itemMenuFactory.facadeRegisterCar();
 
-        System.out.print("Enter the car manufacturer: ");
-        registerCarManufacturer(input.next());
+        registerCarManufacturerInput("");
 
         System.out.print("Enter the car model: ");
         registerCarModel(input.next());
@@ -34,15 +37,39 @@ public class RegisterCar {
         System.out.print("Enter the KM car: ");
         registerCarKM(input.nextLong());
 
-        System.out.print("Enter the rent price for this car: ");
+        System.out.print("Enter the rent day price for this car: ");
         registerCarRentPrice(input.nextDouble());
 
         daoCar.save(car);
     }
 
+    private void errorTest(String error){
+        if (error != "")
+            System.out.println(colorFactory.ANSI_RED + error + colorFactory.ANSI_RESET);
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+    }
+
     public String registerCarManufacturer(String manufacturer) {
-        car.setManufacturer(manufacturer);
-        return car.getManufacturer();
+        if (validateFactory.validateName.isValid( manufacturer )) {
+            car.setManufacturer(manufacturer);
+            return car.getManufacturer();
+        }
+        return "error";
+    }
+
+    public void registerCarManufacturerInput(String error) {
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the manufacturer: ");
+        String manufacturer;
+        manufacturer = input.nextLine();
+        registerCarManufacturer(manufacturer);
+
+        if (registerCarManufacturer(manufacturer) == "error")
+            registerCarManufacturerInput("Name isn't valid, try again: ");
+
     }
 
     public String registerCarModel(String model) {
