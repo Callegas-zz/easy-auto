@@ -26,8 +26,7 @@ public class RegisterCar {
 
         registerCarLicencePlateInput( "" );
 
-        System.out.print("Enter the car year: ");
-        registerCarYear(input.nextInt());
+        registerCarYearInput("");
 
         System.out.print("Enter the car engine: ");
         registerCarEngine(input.nextDouble());
@@ -114,8 +113,23 @@ public class RegisterCar {
     }
 
     public Integer registerCarYear(Integer year){
-        car.setYear(year);
-        return car.getYear();
+        if (validateFactory.validateCarYear.isValid(year)) {
+            car.setYear(year);
+            return car.getYear();
+        }
+        return 0;
+    }
+
+    public void registerCarYearInput(String error){
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the car year:      ");
+        Integer year = input.nextInt();
+        registerCarYear(year);
+
+        if(registerCarYear(year) == 0)
+            registerCarYearInput( "Car year isn't valid, try again: " );
     }
 
     public Double registerCarEngine(Double engine){

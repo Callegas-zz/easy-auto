@@ -46,6 +46,11 @@ public class registerCarTest {
     }
 
     @Test
+    public void ifTryToRegisterInvalidCarYear(){
+        Assert.assertEquals( new Long(0),new Long(registerCar.registerCarYear( 2003 )) );
+    }
+
+    @Test
     public void isReceivingCarEngineAndSetting(){
         registerCar.registerCarEngine(1.0);
         Assert.assertEquals(registerCar.car.getEngine(),(Double) 1.0);
