@@ -73,7 +73,7 @@ public class RegisterCustomer {
 
 
     public String registerCustomerName(String name){
-        if (validateFactory.validateName.isName(name)) {
+        if (validateFactory.validateName.isValid(name)) {
             customer.setName(name);
             return customer.getName();
         }
@@ -96,7 +96,7 @@ public class RegisterCustomer {
 
 
     public String registerCustomerCpf(String cpf){
-        if (validateFactory.validateCPF.isCPF(cpf)) {
+        if (validateFactory.validateCPF.isValid(cpf)) {
             customer.setCpf(cpf);
             return customer.getCpf();
         }
@@ -121,6 +121,10 @@ public class RegisterCustomer {
         return customer.getEmail();
     }
 
+    public void registerCustomerEmailInput(String error){
+
+    }
+
     public String registerCustomerTelephone(String telephone){
         customer.setTelephone(telephone);
         return customer.getTelephone();
@@ -132,7 +136,7 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerAddressState(String state){
-        if (validateFactory.validateName.isName(state)) {
+        if (validateFactory.validateName.isValid(state)) {
             address.setState(state);
             return address.getState();
         }
@@ -153,7 +157,7 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerAddressCity(String city){
-        if (validateFactory.validateName.isName(city)) {
+        if (validateFactory.validateName.isValid(city)) {
             address.setCity(city);
             return address.getCity();
         }
@@ -175,7 +179,7 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerAddressStreet(String street){
-        if (validateFactory.validateName.isName(street)) {
+        if (validateFactory.validateName.isValid(street)) {
             address.setStreet(street);
             return address.getStreet();
         }
