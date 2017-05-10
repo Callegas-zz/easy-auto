@@ -8,5 +8,6 @@ public class ValidateFactory {
     public ValidateZipCode validateZipCode = new ValidateZipCode();
     public ValidateAddressNumber validateAddressNumber = new ValidateAddressNumber();
     public ValidateLicencePlate validateLicencePlate = new ValidateLicencePlate();
+    public ValidateCarYear validateCarYear = new ValidateCarYear();
 
 }
