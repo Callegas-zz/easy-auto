@@ -133,7 +133,7 @@ public class RegisterCustomer {
     }
 
     public String registerCustomerTelephone(String telephone){
-        if(validateFactory.validadePhone.isValid(telephone)) {
+        if(validateFactory.validatePhone.isValid(telephone)) {
             customer.setTelephone(telephone);
             return customer.getTelephone();
         }
@@ -237,7 +237,6 @@ public class RegisterCustomer {
         System.out.print(colorFactory.ANSI_RESET);
 
         daoCustomer.find(input.next());
-
 
     }
 
