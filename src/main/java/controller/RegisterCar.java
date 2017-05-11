@@ -138,7 +138,7 @@ public class RegisterCar {
     }
 
     public void registerCarEngineInput(String error){
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in).useLocale(Locale.US);
         errorTest(error);
 
         System.out.print("Enter the car engine:    ");
