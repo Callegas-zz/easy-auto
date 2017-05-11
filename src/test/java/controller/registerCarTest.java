@@ -57,9 +57,19 @@ public class registerCarTest {
     }
 
     @Test
+    public void IfRegisterInvalidCarEngine(){
+        Assert.assertEquals((Double) 0.0,registerCar.registerCarEngine(7.7));
+    }
+
+    @Test
     public void isReceivingCarKMAndSetting(){
         registerCar.registerCarKM(50000L);
-        Assert.assertEquals(java.util.Optional.ofNullable(registerCar.car.getKM()),50000L);
+        Assert.assertEquals(new Long(registerCar.car.getKM()),new Long(50000));
+    }
+
+    @Test
+    public void IfRegisterInvalidKm(){
+        Assert.assertEquals(new Long(-1), new Long(registerCar.registerCarKM(-32L)));
     }
 
     @Test

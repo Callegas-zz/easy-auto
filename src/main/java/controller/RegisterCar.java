@@ -28,11 +28,9 @@ public class RegisterCar {
 
         registerCarYearInput("");
 
-        System.out.print("Enter the car engine: ");
-        registerCarEngine(input.nextDouble());
+        registerCarEngineInput("");
 
-        System.out.print("Enter the KM car: ");
-        registerCarKM(input.nextLong());
+        registerCarKmInput("");
 
         System.out.print("Enter the rent day price for this car: ");
         registerCarRentPrice(input.nextDouble());
@@ -133,13 +131,44 @@ public class RegisterCar {
     }
 
     public Double registerCarEngine(Double engine){
-        car.setEngine(engine);
-        return car.getEngine();
+        if (validateFactory.validateEngine.isValid(engine)) {
+            car.setEngine(engine);
+            return car.getEngine();
+        }
+        return 0.0;
+    }
+
+    public void registerCarEngineInput(String error){
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the car engine:    ");
+        Double engine = input.nextDouble();
+        registerCarEngine(engine);
+
+        if(registerCarEngine(engine) == 0)
+            registerCarYearInput( "Engine isn't valid, try again: " );
     }
 
     public Long registerCarKM(Long km){
-        car.setKM(km);
-        return car.getKM();
+        if (km >= 0) {
+            car.setKM(km);
+            return car.getKM();
+        }
+        return -1L;
+    }
+
+    public void registerCarKmInput(String error){
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter the car KM:        ");
+        Long km = input.nextLong();
+        registerCarKM(km);
+
+        if (registerCarKM(km) == -1)
+            registerCarKmInput("KM isn't valid, try again: ");
+
     }
 
     public Double registerCarRentPrice(Double price){
