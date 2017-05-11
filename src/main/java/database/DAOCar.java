@@ -6,9 +6,10 @@ import org.hibernate.Session;
 import database.DAOMethods;
 import database.HibernateUtil;
 import view.ClearScreen;
+import view.ItemMenuFactory;
 
 public class DAOCar extends DAOMethods{
-    ClearScreen clearScreen = new ClearScreen();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
 
     public Car find(String licencePlate){
         try {
