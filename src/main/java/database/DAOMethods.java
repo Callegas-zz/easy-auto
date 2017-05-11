@@ -9,7 +9,7 @@ public abstract class DAOMethods implements DAO {
     ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
 
     @Override
-    public void save(Object object) {
+    public String save(Object object) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -21,11 +21,13 @@ public abstract class DAOMethods implements DAO {
         }
         catch (Exception e){
             itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
+            return e.toString();
         }
+        return "success";
     }
 
     @Override
-    public void remove(String id) {
+    public String remove(String id) {
         try{
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -41,11 +43,12 @@ public abstract class DAOMethods implements DAO {
             clearScreen.clear();
         }catch (Exception e) {
             itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
+            return e.toString();
         }
-
+        return "success";
     }
 
-    public void update(Object object) {
+    public String update(Object object) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
@@ -56,7 +59,9 @@ public abstract class DAOMethods implements DAO {
             itemMenuFactory.setSuccessLog("Successful!");
         }catch (Exception e){
             itemMenuFactory.setErrorLog("An error in database has occurred, please try again ");
+            return e.toString();
         }
+        return "success";
     }
 
 }
