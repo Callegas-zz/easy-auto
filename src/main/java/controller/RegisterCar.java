@@ -32,8 +32,7 @@ public class RegisterCar {
 
         registerCarKmInput("");
 
-        System.out.print("Enter the rent day price for this car: ");
-        registerCarRentPrice(input.nextDouble());
+        registerCarRentPriceInput("");
 
         daoCar.save(car);
     }
@@ -97,7 +96,7 @@ public class RegisterCar {
     }
 
     public void registerCarLicencePlateInput(String error){
-        Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in).useLocale(Locale.US);
         errorTest(error);
 
         System.out.print("Enter the licence plate: ");
@@ -172,8 +171,26 @@ public class RegisterCar {
     }
 
     public Double registerCarRentPrice(Double price){
-        car.setRentPrice(price);
-        return car.getRentPrice();
+        if ((price <= 0) || (price >= 3000)) {
+            car.setRentPrice(price);
+            return car.getRentPrice();
+        }
+        return 0.0;
+    }
+
+    public void registerCarRentPriceInput(String error){
+        Scanner input = new Scanner(System.in);
+        errorTest(error);
+
+        System.out.print("Enter rent price day:    ");
+        Double rent = input.nextDouble();
+        registerCarRentPrice(rent);
+
+        System.out.print(colorFactory.ANSI_RESET);
+
+        if (registerCarRentPrice(rent) == 0.0)
+            registerCarKmInput("Price isn't valid, try again: ");
+
     }
 
     public void removeCar() {
