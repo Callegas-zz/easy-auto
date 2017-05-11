@@ -75,6 +75,6 @@ public class registerCarTest {
     @Test
     public void isReceivingCarRentPriceAndSetting(){
         registerCar.registerCarRentPrice(80.00);
-        Assert.assertEquals(registerCar.car.getRentPrice(),(Double)80.00);
+        Assert.assertEquals(registerCar.car.getRentPriceDay(),(Double)80.00);
     }
 }

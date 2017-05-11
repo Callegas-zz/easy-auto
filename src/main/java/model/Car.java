@@ -15,7 +15,7 @@ public class Car {
     private Long KM;
     private Double engine;
     private byte places;
-    private Double rentPrice;
+    private Double rentPriceDay;
     @Type(type="true_false")
     private boolean available = true;
     @Type(type="true_false")
@@ -25,7 +25,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return this.manufacturer + " " + this.model + " " +this.licencePlate;
+        return this.manufacturer + " " + this.model + " " +this.licencePlate + " " + this.isAvailableString();
     }
 
     public String getLicencePlate() {
@@ -84,16 +84,23 @@ public class Car {
         this.places = places;
     }
 
-    public Double getRentPrice() {
-        return rentPrice;
+    public Double getRentPriceDay() {
+        return rentPriceDay;
     }
 
-    public void setRentPrice(Double rentPrice) {
-        this.rentPrice = rentPrice;
+    public void setRentPriceDay(Double rentPrice) {
+        this.rentPriceDay = rentPrice;
     }
 
     public boolean isAvailable() {
         return available;
+    }
+
+    public String isAvailableString(){
+        if (available)
+            return "AVAILABLE";
+        else
+            return "NOT AVAILABLE";
     }
 
     public void setAvailable(boolean available) {

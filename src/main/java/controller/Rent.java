@@ -5,7 +5,10 @@ import database.DAOCar;
 import model.Customer;
 import database.DAOCustomer;
 import view.ClearScreen;
+import view.ColorFactory;
+import view.ItemMenuFactory;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -15,16 +18,26 @@ public class Rent {
     DAOCar daoCar = new DAOCar();
     Scanner input = new Scanner(System.in);
     ClearScreen clearScreen = new ClearScreen();
+    ItemMenuFactory itemMenuFactory = new ItemMenuFactory();
+    ColorFactory colorFactory = new ColorFactory();
 
     public void newRent(){
-        System.out.println("Enter the database cpf: ");
+        itemMenuFactory.facadeNewRent();
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
+        System.out.print("Enter the database cpf: ");
         String customerCpf = input.next();
 
-        System.out.println("Enter the car licence plate: ");
+        System.out.print("Enter the car licence plate: ");
         String carLicencePlate = input.next();
+
+        System.out.print(colorFactory.ANSI_RESET);
+
 
         Customer currentCustomer = daoCustomer.find(customerCpf);
         Car currentCar = daoCar.find(carLicencePlate);
+        itemMenuFactory.eraseLog();
 
         List<Car> cars = new ArrayList<>();
         cars.add(currentCar);
@@ -36,32 +49,45 @@ public class Rent {
             daoCar.update(currentCar);
             daoCustomer.update(currentCustomer);
 
-            System.out.println("R E N T  W A S  S U C C E F U L L Y!" + "\n");
+            itemMenuFactory.eraseLog();
 
-            System.out.println("C U S T O M E R: \n" + currentCustomer + "\n");
-            System.out.println("C A R: \n" + currentCar + "\n");
+            itemMenuFactory.setSuccessLog("Rent was successfully \n" + "Customer: " + currentCustomer + "\n" + "Car: " + currentCar);
         } else {
             clearScreen.clear();
-            System.out.println("S O R R Y, U N A V A I L A B L E  C A R  O R  C U S T O M E R!" + "\n");
+            itemMenuFactory.setErrorLog("Sorry, unavailable car or customer!");
         }
 
     }
 
     public void finishRent(){
-        System.out.println("Enter the database cpf: ");
-        String customerCpf = input.next();
-        Customer currentCustomer = daoCustomer.find(customerCpf);
+        try {
+            itemMenuFactory.facadeFinishRent();
 
-        List<Car> carCustomer = currentCustomer.getCars();
-        System.out.println(carCustomer.get(0).getLicencePlate());
-        Car currentCar = daoCar.find(carCustomer.get(0).getLicencePlate());
-        currentCar.setAvailable(true);
-        daoCar.update(currentCar);
+            System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
 
-        List<Car> cars = new ArrayList<>();
-        currentCustomer.setCars(cars);
-        currentCustomer.setHasCarRent(false);
-        daoCustomer.update(currentCustomer);
+            System.out.print("Enter the database cpf: ");
+            String customerCpf = input.next();
+
+            System.out.print(colorFactory.ANSI_RESET);
+
+            Customer currentCustomer = daoCustomer.find(customerCpf);
+            itemMenuFactory.eraseLog();
+
+            List<Car> carCustomer = currentCustomer.getCars();
+            System.out.println(carCustomer.get(0).getLicencePlate());
+            Car currentCar = daoCar.find(carCustomer.get(0).getLicencePlate());
+            currentCar.setAvailable(true);
+            daoCar.update(currentCar);
+
+            List<Car> cars = new ArrayList<>();
+            currentCustomer.setCars(cars);
+            currentCustomer.setHasCarRent(false);
+            daoCustomer.update(currentCustomer);
+        }
+        catch (Exception e){
+            itemMenuFactory.eraseLog();
+            itemMenuFactory.setErrorLog("Error, rent not exist");
+        }
 
     }
 

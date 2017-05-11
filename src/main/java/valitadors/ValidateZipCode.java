@@ -4,7 +4,7 @@ public class ValidateZipCode {
 
 
     public static boolean isValid(String zipCode) {
-        return zipCode.matches("[A-Z]{5}[-]\\d{3}$");
+        return zipCode.matches("\\d{5}[-]\\d{3}$");
     }
 
 }

@@ -114,7 +114,7 @@ public class Menu {
                     break;
                 }
                 default:
-                    System.out.println("Invalid option!");
+                    itemMenuFactory.setErrorLog("Invalid option, please try again!");
             }
         }
     }
@@ -123,11 +123,7 @@ public class Menu {
         clearScreen.clear();
         int selection3 = 999;
         while (selection3 != 0) {
-            System.out.println("S E R V I C E  S E S S I O N\n");
-            System.out.println("1 - New Rent");
-            System.out.println("2 - Finish Rent");
-            System.out.println("0 - Return to main menu");
-            System.out.print("\n\nenter the option:");
+           itemMenuFactory.facadeService();
             selection3 = input.nextInt();
             switch (selection3) {
                 case 0: {

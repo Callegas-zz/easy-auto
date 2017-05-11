@@ -171,9 +171,9 @@ public class RegisterCar {
     }
 
     public Double registerCarRentPrice(Double price){
-        if ((price <= 0) || (price >= 3000)) {
-            car.setRentPrice(price);
-            return car.getRentPrice();
+        if ((price >= 0) && (price <= 3000)) {
+            car.setRentPriceDay(price);
+            return car.getRentPriceDay();
         }
         return 0.0;
     }
@@ -193,15 +193,29 @@ public class RegisterCar {
 
     }
 
-    public void removeCar() {
-        System.out.println("D E L E T E  C A R");
-        System.out.print("Enter the licence plate for DELETE car: ");
-        daoCar.remove(input.next());
-    }
 
     public void findCar() {
-        System.out.println("F I N D  C U S T O M E R:");
-        System.out.print("Enter the licence plate for find car: ");
+        Scanner input = new Scanner(System.in);
+        itemMenuFactory.facadeFindCar();
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
+        System.out.print("Enter the licence plate for find database: ");
+        System.out.print(colorFactory.ANSI_RESET);
+
         daoCar.find(input.next());
+    }
+
+    public void removeCar() {
+        Scanner input = new Scanner(System.in);
+        itemMenuFactory.facadeDeleteCar();
+
+        System.out.print(colorFactory.ANSI_WHITE_BACKGROUND + colorFactory.ANSI_BLACK);
+
+        System.out.print("Enter the licence plate for DELETE database: ");
+        System.out.print(colorFactory.ANSI_RESET);
+
+
+        daoCar.remove(input.next());
     }
 }
