@@ -30,6 +30,8 @@ public class RegisterCar {
 
         registerCarEngineInput("");
 
+        registerCarPlacesInput("");
+
         registerCarKmInput("");
 
         registerCarRentPriceInput("");
@@ -138,15 +140,37 @@ public class RegisterCar {
     }
 
     public void registerCarEngineInput(String error){
-        Scanner input = new Scanner(System.in).useLocale(Locale.US);
-        errorTest(error);
+        Scanner input = new Scanner(System.in).useLocale( Locale.US );
+        errorTest( error );
 
         System.out.print("Enter the car engine:    ");
         Double engine = input.nextDouble();
-        registerCarEngine(engine);
+        registerCarEngine( engine );
 
-        if(registerCarEngine(engine) == 0)
+        if(registerCarEngine( engine ) == 0)
             registerCarYearInput( "Engine isn't valid, try again: " );
+    }
+
+    public byte registerCarPlaces(byte places) {
+        if (validateFactory.validateCarPlaces.isValid( places )) {
+            car.setPlaces( places );
+            return car.getPlaces();
+        }
+
+        return 0;
+    }
+
+    public void registerCarPlacesInput(String error){
+        Scanner input = new Scanner(System.in).useLocale( Locale.US );
+        errorTest( error );
+
+        System.out.print("Enter the car places:    ");
+        byte places = input.nextByte();
+        registerCarPlaces( places );
+
+        if (registerCarPlaces( places ) == 0)
+            registerCarPlacesInput("Places isn't valid, try again"  );
+
     }
 
     public Long registerCarKM(Long km){

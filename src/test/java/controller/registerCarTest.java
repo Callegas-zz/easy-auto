@@ -57,8 +57,20 @@ public class registerCarTest {
     }
 
     @Test
-    public void IfRegisterInvalidCarEngine(){
+    public void ifRegisterInvalidCarEngine(){
         Assert.assertEquals((Double) 0.0,registerCar.registerCarEngine(7.7));
+    }
+
+    @Test
+    public void isReceivingCarPlacesAndSetting(){
+        registerCar.registerCarPlaces( (byte) 5 );
+        Assert.assertEquals( registerCar.car.getPlaces(), (byte) 5   );
+
+    }
+
+    @Test
+    public void ifRegisterInvalidCarPlaces() {
+        Assert.assertEquals( (byte) 0, registerCar.registerCarPlaces( (byte) 10 ) );
     }
 
     @Test
