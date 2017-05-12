@@ -10,5 +10,6 @@ public class ValidateFactory {
     public ValidateLicencePlate validateLicencePlate = new ValidateLicencePlate();
     public ValidateCarYear validateCarYear = new ValidateCarYear();
     public ValidateEngine validateEngine = new ValidateEngine();
+    public ValidateCarPlaces validateCarPlaces = new ValidateCarPlaces();
 
 }
